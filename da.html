@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en"><head><style>
+    /**
+ * NB: this stylesheet is loaded inline in sandboxed HTML iframes that may contain
+ * arbitrary untrusted content.  Be very careful what rules you add here.
+ */
+body {
+  background-color: transparent;
+  margin: 0px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+#content-wrapper {
+  overflow: auto;
+}
+
+#content-wrapper .markdown {
+  /**
+   * without overriding this, the height is 100% (of the containing block), which is
+   * initially quite small. The content will not fit, and will then depend on the
+   * `overflow` property, which is `hidden`. In theory, `overflow: visible` will expand the
+   * height to fit, but it has a bad interaction with postResizeMessage which causes the div
+   * to keep growing in size under _some_ (ES-9273) circumstances. `height: auto` has the same
+   * effect of allowing the browser to size the div but without the bad effects.
+   **/
+  height: auto;
+}
+
+/**
+ * Approximates the JupyterLab Light theme for display of pandas-like DataFrames.
+ *
+ * TODO: JupyterLab parameterizes theme-able properties using CSS variables.  This
+ * implementation hard-codes them.
+ */
+.dataframe {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  table-layout: fixed;
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+.dataframe thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.dataframe tr {
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.dataframe th {
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.dataframe tbody tr:nth-child(odd) {
+  background: white;
+}
+.dataframe tbody tr:nth-child(even) {
+  background: #f5f5f5;
+}
+.dataframe tbody tr:hover {
+  background-color: rgb(218, 242, 254);
+}
+.dataframe tbody tr th:only-of-type {
+  vertical-align: middle;
+}
+.dataframe tbody td {
+  font-size: 12px;
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+
+/**
+ * CSS Variables to override the data summary (Data Profile) output
+ */
+#facets {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'FontAwesome';
+}
+
+.db-summary-container .db-summary-items {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'FontAwesome';
+}
+#content-wrapper .plotly-graph-div, #content-wrapper > div:has(> img), .db-result-wrapper, .db-result-wrapper .plotly-graph-div, .db-result-wrapper > div:has(> img) {height: fit-content !important;}
+  </style>
+  <base href="https://dbc-e8ffba9c-c7d3.cloud.databricks.com" target="_blank">
+  <script>
+    (function() {
+      var parentUri = 'https://dbc-e8ffba9c-c7d3.cloud.databricks.com';
+      var originalWidth = null;
+      var originalHeight = null;
+      var scale = 1.0;
+      window.onerror = function(message, source, lineno, colno, error) {
+        window.parent.postMessage({
+          type: 'frameJsError',
+          loc: window.location.href,
+          frameId: 'iframe-guid-c392a3f1-b3c8-4cd6-a784-1d2b59b6f89c',
+          error: message,
+          source: source,
+          lineno: lineno,
+          colno: colno,
+          stack: error && error.stack ? error.stack : null,
+        }, parentUri);
+      };
+      window.addEventListener('unhandledrejection', function(ev) {
+        var reason = ev.reason;
+        window.parent.postMessage({
+          type: 'frameJsError',
+          loc: window.location.href,
+          frameId: 'iframe-guid-c392a3f1-b3c8-4cd6-a784-1d2b59b6f89c',
+          error: reason && reason.message ? reason.message : String(reason),
+          stack: reason && reason.stack ? reason.stack : null,
+          isUnhandledRejection: true,
+        }, parentUri);
+      });
+      window.staticRecordEvent = function(...args) {
+        if (args.length > 0 && args[0] === 'uncaughtJsException') {
+          window.parent.postMessage({
+            type: 'frameWindowRecordEvent',
+            loc: window.location.href,
+            frameId: 'iframe-guid-c392a3f1-b3c8-4cd6-a784-1d2b59b6f89c',
+            args: args,
+          }, parentUri);
+        }
+      };
+      function postResizeMessage() {
+        
+        var wrapper = document.getElementById('content-wrapper');
+        var newWidth = document.body.scrollWidth;
+        var newHeight = document.body.scrollHeight;
+        if (wrapper) {
+            var rect = wrapper.getBoundingClientRect();
+            newWidth = (scale && rect.right / scale) || wrapper.scrollWidth || document.body.scrollWidth;
+            newHeight = (scale && rect.bottom / scale) || wrapper.scrollHeight || document.body.scrollHeight;
+        }
+        if (Math.round(newWidth) != Math.round(originalWidth) || Math.round(newHeight) != Math.round(originalHeight)) {
+          originalWidth = newWidth;
+          originalHeight = newHeight;
+          window.parent.postMessage({
+            type: 'frameResizeEvent',
+            frameId: 'iframe-guid-c392a3f1-b3c8-4cd6-a784-1d2b59b6f89c',
+            loc: window.location.href,
+            height: originalHeight,
+            width: originalWidth,
+            isAutoScaled: false,
+          }, parentUri);
+        }
+      };
+      
+      setInterval(postResizeMessage, 250);
+
+      window.addEventListener('message', function(msg) {
+        var messageOrigin = msg.origin || msg.originalEvent.origin;
+        var iframeOrigin = window.origin
+        var isOpaqueOrigin = iframeOrigin === 'null' && parentUri === '*';
+        
+        if (messageOrigin !== parentUri && !isOpaqueOrigin) {
+          
+          if (!(msg.data && msg.data.__shimSuppressOriginLog)) {
+            console.error('Invalid origin', messageOrigin, parentUri);
+          }
+          return;
+        }
+
+        if (msg.data.type === 'updateHtml' && msg.data.frameId === 'iframe-guid-c392a3f1-b3c8-4cd6-a784-1d2b59b6f89c') {
+          document.write(msg.data.content);
+          document.close();
+          return;
+        }
+
+        
+        
+        var clientHeight = document.getElementsByTagName('body')[0].clientHeight;
+        if (clientHeight > 0) {
+          document.body.style.height = clientHeight + 'px';
+        }
+        
+      });
+      
+    })();
+  </script>
+  </head><body style="height: 24130px;"><div id="content-wrapper" style="height:fit-content;" class="">
+    
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Databricks Certified Data Analyst Associate — Complete Cheat Sheet</title>
+<style>
+:root{--bg:#f8fafc;--card:#fff;--text:#1e293b;--muted:#64748b;--primary:#1d4ed8;--primary-soft:#dbeafe;--accent:#7c3aed;--success:#059669;--success-soft:#d1fae5;--border:#e2e8f0;--shadow:0 4px 6px -1px rgba(0,0,0,.07)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:13px}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px}
+h1{font-size:26px;color:var(--primary);margin-bottom:8px;border-bottom:3px solid var(--primary);padding-bottom:8px}
+h2{font-size:18px;color:var(--primary);margin:24px 0 10px;padding:8px 12px;background:var(--primary-soft);border-radius:8px;border-left:4px solid var(--primary)}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;margin-left:6px;background:var(--success-soft);color:var(--success)}
+.section{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}
+.concept{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.concept:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.concept h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.concept p,.concept ul{margin-bottom:4px;font-size:12px}
+.concept ul{padding-left:16px}
+.concept li{margin-bottom:2px}
+code{background:#f1f5f9;padding:1px 4px;border-radius:3px;font-size:11px;font-family:monospace}
+pre{background:#1e293b;color:#e2e8f0;padding:10px;border-radius:6px;overflow-x:auto;font-size:11px;margin:6px 0}
+.tip{background:#fef3c7;border-left:3px solid #f59e0b;padding:6px 10px;border-radius:0 6px 6px 0;margin:6px 0;font-size:11px}
+table{width:100%;border-collapse:collapse;margin:6px 0;font-size:11px}
+th,td{padding:4px 8px;border:1px solid var(--border);text-align:left}
+th{background:var(--primary-soft);font-weight:700}
+.priority-1{border-left:4px solid #dc2626;padding-left:8px;margin:4px 0}
+.priority-2{border-left:4px solid #f59e0b;padding-left:8px;margin:4px 0}
+.priority-3{border-left:4px solid #6b7280;padding-left:8px;margin:4px 0}
+@media print{
+  @page{margin:1.5cm 1cm}
+  body{font-size:10px;background:#fff}
+  .container{padding:0;max-width:100%}
+  .section{box-shadow:none;border:1px solid #ccc;break-inside:auto;page-break-inside:auto}
+  .concept{break-inside:avoid;page-break-inside:avoid}
+  h2{break-after:avoid;page-break-after:avoid}
+  pre{white-space:pre-wrap;word-wrap:break-word}
+  table{break-inside:avoid;page-break-inside:avoid}
+  .tip{break-inside:avoid;page-break-inside:avoid}
+  #downloadBtn{display:none}
+}
+</style>
+
+
+<div class="container">
+
+<h1>Databricks Certified Data Analyst Associate — Complete Cheat Sheet</h1>
+<p style="color:var(--muted);margin-bottom:16px">Comprehensive study guide covering all 402 assessment questions. <span class="badge">✅ NEW</span> = Added from assessment analysis.</p>
+
+<button id="downloadBtn" style="background: var(--primary); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 700; cursor: pointer; margin-bottom: 16px; box-shadow: rgba(29, 78, 216, 0.3) 0px 2px 6px; transition: opacity 0.2s; opacity: 0.85;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" onclick="downloadPage()">⬇ Download Cheat Sheet (.html)</button>
+<script>
+function downloadPage(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob(['<!DOCTYPE html>\n'+html],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='data-analyst-knowledge-summary-complete.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+</script>
+
+<!-- ====== SECTION 1 ====== -->
+<h2>1. Lakehouse Architecture &amp; Databricks Platform</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Lakehouse Architecture</h4>
+<p><strong>Definition:</strong> Combines data lake (low-cost object storage, open formats) with data warehouse (ACID, schema enforcement, BI support) on a single platform.</p>
+<ul>
+<li><strong>Data Lake:</strong> Cheap storage (S3/ADLS/GCS), any format, schema-on-read</li>
+<li><strong>Data Warehouse:</strong> Structured, schema-on-write, optimized for BI</li>
+<li><strong>Lakehouse:</strong> Open formats + ACID + governance + direct BI access</li>
+</ul>
+<div class="tip">Exam: Lakehouse eliminates copying data between lake and warehouse. Single source of truth.</div>
+</div>
+
+<div class="concept">
+<h4>Photon Engine <span class="badge">✅ NEW</span></h4>
+<p><strong>Definition:</strong> Native vectorized C++ query engine that accelerates Spark SQL with better CPU/memory efficiency.</p>
+<ul>
+<li>Enabled on SQL Warehouses by default</li>
+<li>Best for scan-heavy, aggregation, and join workloads</li>
+<li>NOT a storage format or programming language</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Auto Loader <span class="badge">✅ NEW</span></h4>
+<p><strong>Definition:</strong> Incrementally ingests new files from cloud storage (exactly-once semantics).</p>
+<ul>
+<li>Processes only NEW files as they arrive</li>
+<li>Supports schema inference and evolution</li>
+<li>Uses <code>cloudFiles</code> format in Spark</li>
+</ul>
+<div class="tip">Exam: Auto Loader = file ingestion, NOT loading Python packages or caching queries.</div>
+</div>
+
+<div class="concept">
+<h4>SQL Warehouse vs All-Purpose Cluster</h4>
+<table>
+<tbody><tr><th>Feature</th><th>SQL Warehouse</th><th>All-Purpose Cluster</th></tr>
+<tr><td>Optimized for</td><td>SQL/BI queries</td><td>All languages, notebooks, ML</td></tr>
+<tr><td>Engine</td><td>Photon (vectorized)</td><td>Standard Spark</td></tr>
+<tr><td>Serverless</td><td>Yes (scale to zero)</td><td>No</td></tr>
+<tr><td>Use case</td><td>Dashboards, alerts, queries</td><td>Development, ML, ETL</td></tr>
+</tbody></table>
+</div>
+
+<div class="concept">
+<h4>Serverless SQL Warehouse &amp; Scale to Zero</h4>
+<p><strong>Scale to zero:</strong> Completely stops with zero cost when idle, restarts in seconds when query arrives.</p>
+<ul>
+<li>No infrastructure management</li>
+<li>Best for intermittent, budget-sensitive BI workloads</li>
+</ul>
+<div class="tip">Exam: "Scale to zero" = NO cost when idle. Not "reduces to one node" or "sends alert".</div>
+</div>
+
+<div class="concept">
+<h4>Warehouse Performance Optimization <span class="badge">✅ NEW</span></h4>
+<ul>
+<li>1. Check query profile for bottlenecks first</li>
+<li>2. Optimize filters and predicates</li>
+<li>3. Consider materializing intermediate results</li>
+<li>4. Right-size warehouse (do NOT just upgrade blindly)</li>
+</ul>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Data Ingestion Methods</h4>
+<p><em>If you know Auto Loader, you must also know:</em></p>
+<table>
+<tbody><tr><th>Method</th><th>How It Works</th><th>Use When</th><th>Do NOT Use When</th></tr>
+<tr><td><strong>Auto Loader</strong></td><td>cloudFiles; file notification or directory listing</td><td>Continuous new files in cloud storage</td><td>One-time bulk load; non-file sources</td></tr>
+<tr><td><strong>COPY INTO</strong></td><td>SQL command; idempotent file ingestion</td><td>Periodic batch load; SQL-only envs</td><td>Real-time streaming; complex transforms</td></tr>
+<tr><td><strong>Streaming Table</strong></td><td>CREATE STREAMING TABLE; incremental</td><td>Declarative pipelines (SDP); managed refresh</td><td>Ad-hoc queries; manual control</td></tr>
+<tr><td><strong>Structured Streaming</strong></td><td>PySpark readStream/writeStream</td><td>Custom streaming; Python/Scala needed</td><td>SQL-only analysts; simple appends</td></tr>
+<tr><td><strong>Batch INSERT</strong></td><td>INSERT INTO / INSERT OVERWRITE</td><td>Full refresh; known static source</td><td>Need incremental/exactly-once</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: COPY INTO is idempotent (skips loaded files). Auto Loader scales better for millions of files. Neither is for non-file sources.</div>
+</div>
+
+<div class="concept">
+<h4>📦 Family: Compute Types</h4>
+<p><em>If you know SQL Warehouse, compare all compute options:</em></p>
+<table>
+<tbody><tr><th>Compute</th><th>Best For</th><th>Scaling</th><th>Cost Model</th></tr>
+<tr><td><strong>Serverless SQL WH</strong></td><td>Intermittent BI; dashboards</td><td>Instant; scale to zero</td><td>Per query duration only</td></tr>
+<tr><td><strong>Pro SQL WH</strong></td><td>Predictable BI workloads</td><td>Auto-scale; auto-stop timeout</td><td>Running (incl. idle timeout)</td></tr>
+<tr><td><strong>Classic SQL WH</strong></td><td>Legacy; basic SQL</td><td>Same as Pro, fewer features</td><td>Same as Pro</td></tr>
+<tr><td><strong>All-Purpose Cluster</strong></td><td>Dev; ML; multi-language</td><td>Manual/auto-terminate</td><td>Running; no scale-to-zero</td></tr>
+<tr><td><strong>Job Cluster</strong></td><td>Scheduled ETL/pipeline</td><td>Starts for job; terminates</td><td>Only during execution</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: "Minimize cost when idle" = Serverless. Pro still charges during idle timeout. Job cluster = cheapest for scheduled workloads.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 2 ====== -->
+<h2>2. Unity Catalog &amp; Governance</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Unity Catalog Overview</h4>
+<p>Centralized governance: unified access control, lineage, auditing, data discovery across all assets.</p>
+</div>
+
+<div class="concept">
+<h4>Three-Level Namespace</h4>
+<p><code>catalog.schema.object</code> (Table/View/Function/Volume)</p>
+<pre>SELECT * FROM prod.finance.monthly_report;</pre>
+<div class="tip">Exam: NOT Database→Table→Column. It IS Catalog→Schema→Table/View/Function/Volume.</div>
+</div>
+
+<div class="concept">
+<h4>UC Permissions Model</h4>
+<table>
+<tbody><tr><th>Grant</th><th>Purpose</th></tr>
+<tr><td><code>USE CATALOG</code></td><td>Navigate into catalog</td></tr>
+<tr><td><code>USE SCHEMA</code></td><td>Navigate into schema</td></tr>
+<tr><td><code>SELECT</code></td><td>Read table/view data</td></tr>
+<tr><td><code>MODIFY</code></td><td>Write/update/delete</td></tr>
+<tr><td><code>CREATE TABLE</code></td><td>Create tables in schema</td></tr>
+</tbody></table>
+<pre>GRANT USE CATALOG ON CATALOG prod TO analysts;
+GRANT USE SCHEMA ON SCHEMA prod.finance TO analysts;
+GRANT SELECT ON TABLE prod.finance.report TO analysts;</pre>
+<div class="tip">Exam: USE CATALOG alone does NOT grant schema access. Need USE SCHEMA + SELECT.</div>
+</div>
+
+<div class="concept">
+<h4>Principle of Least Privilege <span class="badge">✅ NEW</span></h4>
+<p>Users get only minimum permissions needed. Regular access reviews required.</p>
+</div>
+
+<div class="concept">
+<h4>Column Masking / Row Filters</h4>
+<ul>
+<li><strong>Column Masking:</strong> Dynamic views or UC column mask using identity-based logic</li>
+<li><strong>Row Filters:</strong> SQL UDFs restricting which rows each user sees</li>
+</ul>
+<div class="tip">Exam: Single data source serves multiple access levels via identity-based logic.</div>
+</div>
+
+<div class="concept">
+<h4>UC Tags <span class="badge">✅ NEW</span></h4>
+<p>Key-value metadata for classification, governance, discovery. Do NOT encrypt or trigger workflows.</p>
+</div>
+
+<div class="concept">
+<h4>External Locations &amp; Volumes <span class="badge">✅ NEW</span></h4>
+<ul>
+<li><strong>External Location:</strong> Registered cloud path with storage credential</li>
+<li><strong>Volume:</strong> Managed/external storage for non-tabular files (governed by UC)</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Information Schema <span class="badge">✅ NEW</span></h4>
+<p>Permission-aware system views showing only objects the user can access.</p>
+<pre>SELECT * FROM prod.information_schema.tables WHERE table_schema='finance';</pre>
+</div>
+
+<div class="concept">
+<h4>Data Lineage <span class="badge">✅ NEW</span></h4>
+<p>Tracks source → transformations → target. Enables root cause analysis and impact analysis.</p>
+</div>
+
+<div class="concept">
+<h4>Delta Sharing <span class="badge">✅ NEW</span></h4>
+<p>Open protocol for secure cross-org data sharing without copying. Works with pandas/Spark/Power BI.</p>
+</div>
+
+<div class="concept">
+<h4>Dashboard Security <span class="badge">✅ NEW</span></h4>
+<p>Queries execute under viewer's identity. UC policies (row filters, masks) apply per viewer.</p>
+<div class="tip">Exam: Uses VIEWER identity (credential passthrough), not owner.</div>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Security &amp; Access Control</h4>
+<p><em>If you know Column Masking/Row Filters, compare all approaches:</em></p>
+<table>
+<tbody><tr><th>Approach</th><th>Mechanism</th><th>Pros</th><th>Cons</th></tr>
+<tr><td><strong>Dynamic View</strong></td><td>CASE on is_member() in view</td><td>Simple SQL; works everywhere</td><td>Must query view, not table</td></tr>
+<tr><td><strong>UC Row Filter</strong></td><td>SQL UDF on table</td><td>Transparent; all queries filtered</td><td>Requires UC; UDF maintenance</td></tr>
+<tr><td><strong>UC Column Mask</strong></td><td>Masking function per column</td><td>Transparent per-column</td><td>Must handle all groups</td></tr>
+<tr><td><strong>Separate Tables</strong></td><td>Physical copies per level</td><td>Simple permissions</td><td>Data duplication; sync nightmare</td></tr>
+<tr><td><strong>UC Tags + ABAC</strong></td><td>Tag-based attribute access</td><td>Scalable; metadata-driven</td><td>Complex setup; newer feature</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: Two physical copies = sync nightmare. Dynamic view or UC filter = single source, multiple access levels.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 3 ====== -->
+<h2>3. Delta Lake</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Delta Lake Overview</h4>
+<p>Open-source storage layer: ACID transactions + scalable metadata + time travel on data lakes.</p>
+<ul>
+<li>Built on Parquet + JSON transaction log (<code>_delta_log</code>)</li>
+<li>Schema enforcement and evolution</li>
+<li>Unified batch and streaming</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Managed vs External Tables</h4>
+<table>
+<tbody><tr><th></th><th>Managed</th><th>External</th></tr>
+<tr><td>Storage</td><td>Metastore-controlled</td><td>User-specified LOCATION</td></tr>
+<tr><td>DROP</td><td>Deletes metadata + data files</td><td>Deletes metadata only, files remain</td></tr>
+</tbody></table>
+<div class="tip">Exam: DROP managed = data GONE. DROP external = metadata removed, files remain.</div>
+</div>
+
+<div class="concept">
+<h4>Time Travel</h4>
+<pre>SELECT * FROM t VERSION AS OF 5;
+SELECT * FROM t TIMESTAMP AS OF '2024-01-15';</pre>
+<p>Query historical snapshots for comparison, audit, rollback.</p>
+<div class="tip">Exam: Time Travel is NOT VACUUM, NOT OPTIMIZE, NOT ANALYZE TABLE.</div>
+</div>
+
+<div class="concept">
+<h4>DESCRIBE HISTORY (Audit)</h4>
+<pre>DESCRIBE HISTORY catalog.schema.table;</pre>
+<p>Shows version, timestamp, userId, operation for each commit.</p>
+<div class="tip">Exam: DESCRIBE HISTORY = audit tool. NOT DESCRIBE TABLE EXTENDED, NOT SHOW GRANTS.</div>
+</div>
+
+<div class="concept">
+<h4>OPTIMIZE &amp; ZORDER</h4>
+<pre>OPTIMIZE my_table ZORDER BY (region, date);</pre>
+<ul>
+<li>OPTIMIZE: compacts small files into larger ones</li>
+<li>ZORDER: co-locates data for better data skipping</li>
+<li>Best on <strong>low-to-medium cardinality</strong> filter columns</li>
+</ul>
+<div class="tip">Exam: ZORDER on very high-cardinality = LESS effective. Run after many writes.</div>
+</div>
+
+<div class="concept">
+<h4>VACUUM</h4>
+<pre>VACUUM my_table RETAIN 168 HOURS; -- default 7 days</pre>
+<p>Removes old unreferenced files. Short retention breaks time travel!</p>
+<div class="tip">Exam: VACUUM ≠ OPTIMIZE (compress). Short retention = risk breaking concurrent reads.</div>
+</div>
+
+<div class="concept">
+<h4>Liquid Clustering <span class="badge">✅ NEW</span></h4>
+<p>Replaces partition + ZORDER. Automatically reorganizes data; can change clustering keys without full rewrite.</p>
+</div>
+
+<div class="concept">
+<h4>Change Data Feed (CDF) <span class="badge">✅ NEW</span></h4>
+<p>Records row-level changes (insert/update_preimage/update_postimage/delete) for incremental ETL.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Delta Lake Operations</h4>
+<p><em>OPTIMIZE vs VACUUM vs ANALYZE — often confused:</em></p>
+<table>
+<tbody><tr><th>Command</th><th>Purpose</th><th>Changes Data?</th><th>Performance Effect</th></tr>
+<tr><td><code>OPTIMIZE</code></td><td>Compact small files → larger</td><td>No (same data, better layout)</td><td>Faster reads (fewer files)</td></tr>
+<tr><td><code>VACUUM</code></td><td>Delete old unreferenced files</td><td>No (current version unchanged)</td><td>Saves storage; may break time travel</td></tr>
+<tr><td><code>ANALYZE TABLE</code></td><td>Compute column statistics</td><td>No</td><td>Better optimizer decisions</td></tr>
+<tr><td><code>DESCRIBE HISTORY</code></td><td>Show commit audit log</td><td>No</td><td>None (read-only metadata)</td></tr>
+<tr><td><code>RESTORE</code></td><td>Rollback to prior version</td><td>Yes (reverts data!)</td><td>None</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: OPTIMIZE ≠ VACUUM. OPTIMIZE restructures. VACUUM deletes old files. Neither changes actual rows.</div>
+</div>
+
+<div class="concept">
+<h4>📦 Family: Table Data Organization</h4>
+<p><em>Partitioning vs ZORDER vs Liquid Clustering:</em></p>
+<table>
+<tbody><tr><th>Strategy</th><th>Mechanism</th><th>Best For</th><th>Limitation</th></tr>
+<tr><td><strong>Partitioning</strong></td><td>Separate directories per value</td><td>Low-cardinality (date, region)</td><td>Too many → small file problem</td></tr>
+<tr><td><strong>ZORDER</strong></td><td>Co-locate related values</td><td>Medium-cardinality WHERE cols</td><td>High-cardinality = poor co-location</td></tr>
+<tr><td><strong>Liquid Clustering</strong></td><td>Auto-reorganize on write</td><td>Replaces partition+ZORDER</td><td>Newer feature</td></tr>
+<tr><td><strong>Data Skipping</strong></td><td>Min/max stats per file</td><td>Always active; free benefit</td><td>Ineffective if randomly distributed</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: Partitioning on user_id (high card) = millions of tiny files. Use ZORDER or Liquid Clustering instead.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 4 ====== -->
+<h2>4. Tables &amp; Views</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Regular View vs Materialized View</h4>
+<table>
+<tbody><tr><th></th><th>Regular View</th><th>Materialized View</th></tr>
+<tr><td>Storage</td><td>None (query definition only)</td><td>Physical (pre-computed results)</td></tr>
+<tr><td>Freshness</td><td>Always current (re-executes)</td><td>May be stale (needs refresh)</td></tr>
+<tr><td>Speed</td><td>Depends on base table scan</td><td>Fast (reads pre-computed data)</td></tr>
+</tbody></table>
+<div class="tip">Exam: MV = fast but stale. View = always fresh but re-executes each time.</div>
+</div>
+
+<div class="concept">
+<h4>Streaming Table <span class="badge">✅ NEW</span></h4>
+<p>Incrementally processes only new data (append/CDC). NOT a frequently-queried table.</p>
+<pre>CREATE STREAMING TABLE raw_events AS
+SELECT * FROM STREAM read_files('/data/events/');</pre>
+</div>
+
+<div class="concept">
+<h4>Temporary vs Global Temporary View <span class="badge">✅ NEW</span></h4>
+<table>
+<tbody><tr><th></th><th>TEMP VIEW</th><th>GLOBAL TEMP VIEW</th></tr>
+<tr><td>Scope</td><td>Current session</td><td>All sessions on cluster</td></tr>
+<tr><td>Access</td><td><code>my_view</code></td><td><code>global_temp.my_view</code></td></tr>
+<tr><td>Lifetime</td><td>Session ends</td><td>Cluster restarts</td></tr>
+</tbody></table>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Views &amp; Pre-computation</h4>
+<p><em>When to choose each pre-computation strategy:</em></p>
+<table>
+<tbody><tr><th>Object</th><th>Stores Data?</th><th>Freshness</th><th>Use When</th><th>NOT When</th></tr>
+<tr><td><strong>Regular View</strong></td><td>No</td><td>Always current</td><td>Simple alias; security layer</td><td>Expensive query repeated often</td></tr>
+<tr><td><strong>Materialized View</strong></td><td>Yes</td><td>Stale until refresh</td><td>Expensive agg read often</td><td>Need real-time; write-heavy</td></tr>
+<tr><td><strong>Streaming Table</strong></td><td>Yes</td><td>Near real-time</td><td>Append-only/CDC pipelines</td><td>Complex re-aggregation</td></tr>
+<tr><td><strong>Temp View</strong></td><td>No</td><td>Session only</td><td>Intermediate step</td><td>Cross-session sharing</td></tr>
+<tr><td><strong>Gold Table</strong></td><td>Yes</td><td>Scheduled</td><td>Dashboard aggregates</td><td>Dynamic/parameterized filtering</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: MV refresh is NOT automatic on every write. Must be triggered or scheduled.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 5 ====== -->
+<h2>5. SQL Fundamentals</h2>
+<div class="section">
+
+<div class="concept">
+<h4>SQL Execution Order</h4>
+<pre>FROM → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT</pre>
+<ul>
+<li>WHERE: before aggregation (no aggregate functions allowed)</li>
+<li>HAVING: after aggregation (aggregate functions OK)</li>
+</ul>
+<div class="tip">Exam: WHERE SUM(x)&gt;100 = ERROR. Use HAVING SUM(x)&gt;100.</div>
+</div>
+
+<div class="concept">
+<h4>COUNT(*) vs COUNT(col) vs COUNT(DISTINCT col)</h4>
+<table>
+<tbody><tr><th>Expression</th><th>Behavior</th></tr>
+<tr><td><code>COUNT(*)</code></td><td>ALL rows regardless of NULLs</td></tr>
+<tr><td><code>COUNT(col)</code></td><td>Non-NULL values only</td></tr>
+<tr><td><code>COUNT(DISTINCT col)</code></td><td>Unique non-NULL values</td></tr>
+</tbody></table>
+</div>
+
+<div class="concept">
+<h4>NULL Handling</h4>
+<ul>
+<li>AVG/SUM/COUNT(col) — skip NULLs silently</li>
+<li>COUNT(*) — includes all rows</li>
+<li>NULL in arithmetic → NULL propagates</li>
+<li>NULL = NULL → UNKNOWN (use IS NULL)</li>
+</ul>
+<div class="tip">Exam: AVG does NOT replace NULL with 0. It SKIPS them entirely.</div>
+</div>
+
+<div class="concept">
+<h4>COALESCE <span class="badge">✅ NEW</span></h4>
+<p>Returns first non-NULL argument left-to-right. <code>COALESCE(a,b,c)</code> — if a=NULL,b=NULL,c=5 → returns 5.</p>
+</div>
+
+<div class="concept">
+<h4>CASE WHEN</h4>
+<p>Evaluates top-down, stops at first TRUE. Order is critical — narrower conditions first!</p>
+<div class="tip">Exam: Broad threshold first swallows narrower categories.</div>
+</div>
+
+<div class="concept">
+<h4>GROUP BY ALL <span class="badge">✅ NEW</span></h4>
+<p>Auto-groups by every non-aggregate column in SELECT.</p>
+<pre>SELECT region, product, SUM(sales) FROM t GROUP BY ALL;</pre>
+</div>
+
+<div class="concept">
+<h4>GROUPING SETS <span class="badge">✅ NEW</span></h4>
+<p>Multiple aggregation levels in one pass: detail + subtotals + grand total.</p>
+<pre>GROUP BY GROUPING SETS ((region,product), (region), ())</pre>
+</div>
+
+<div class="concept">
+<h4>Set Operations</h4>
+<table>
+<tbody><tr><th>Op</th><th>Behavior</th></tr>
+<tr><td>UNION ALL</td><td>All rows including duplicates</td></tr>
+<tr><td>UNION</td><td>Removes duplicates</td></tr>
+<tr><td>INTERSECT</td><td>Rows in BOTH sets</td></tr>
+<tr><td>EXCEPT</td><td>Rows in first NOT in second (distinct)</td></tr>
+</tbody></table>
+<div class="tip">Exam: Reconciliation = UNION ALL. EXCEPT returns DISTINCT rows.</div>
+</div>
+
+<div class="concept">
+<h4>MERGE (Upsert) <span class="badge">✅ NEW</span></h4>
+<pre>MERGE INTO target USING source ON target.id = source.id
+WHEN MATCHED THEN UPDATE SET ...
+WHEN NOT MATCHED THEN INSERT ...;</pre>
+<div class="tip">Exam: Multiple matches = error/non-deterministic. Ensure unique ON condition.</div>
+</div>
+
+<div class="concept">
+<h4>Correlated vs Uncorrelated Subquery <span class="badge">✅ NEW</span></h4>
+<ul>
+<li><strong>Uncorrelated:</strong> Executes once independently</li>
+<li><strong>Correlated:</strong> References outer columns; re-evaluated per outer row</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>CTE (Common Table Expression) <span class="badge">✅ NEW</span></h4>
+<pre>WITH monthly AS (SELECT month, SUM(rev) total FROM sales GROUP BY month)
+SELECT * FROM monthly WHERE total &gt; 1000000;</pre>
+<p>Improves readability, enables recursion, query-scoped only.</p>
+</div>
+
+<div class="concept">
+<h4>Recursive CTE <span class="badge">✅ NEW</span></h4>
+<p>Anchor member (base) + Recursive member (references CTE). Iterates until no new rows.</p>
+<pre>WITH RECURSIVE tree AS (
+  SELECT * FROM emp WHERE mgr IS NULL  -- anchor
+  UNION ALL
+  SELECT e.* FROM emp e JOIN tree t ON e.mgr=t.id  -- recursive
+) SELECT * FROM tree;</pre>
+</div>
+
+<div class="concept">
+<h4>EXISTS vs IN <span class="badge">✅ NEW</span></h4>
+<ul>
+<li>EXISTS short-circuits after first match (efficient for large correlated checks)</li>
+<li>IN evaluates all values and has different NULL semantics</li>
+<li>NOT IN + NULLs in subquery = wrong/empty results</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>TABLESAMPLE <span class="badge">✅ NEW</span></h4>
+<pre>SELECT * FROM big_table TABLESAMPLE (10 PERCENT);
+SELECT * FROM big_table TABLESAMPLE (1000 ROWS);</pre>
+<p>Quick exploration without full table scan.</p>
+</div>
+
+<div class="concept">
+<h4>EXPLAIN <span class="badge">✅ NEW</span></h4>
+<p>Shows query execution plan without running it. Reveals joins, scans, filter pushdown.</p>
+<pre>EXPLAIN EXTENDED SELECT * FROM t WHERE region='US';</pre>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Filtering Stages (WHERE vs HAVING vs QUALIFY)</h4>
+<table>
+<tbody><tr><th>Clause</th><th>Filters On</th><th>Stage</th><th>Can Reference</th></tr>
+<tr><td><strong>WHERE</strong></td><td>Individual rows</td><td>Before GROUP BY</td><td>Base columns only</td></tr>
+<tr><td><strong>HAVING</strong></td><td>Grouped results</td><td>After GROUP BY</td><td>Aggregate functions</td></tr>
+<tr><td><strong>QUALIFY</strong></td><td>Window results</td><td>After SELECT/window</td><td>Window functions</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: QUALIFY ≠ HAVING. They operate at different stages on different types of results.</div>
+</div>
+
+<div class="concept">
+<h4>📦 Family: Multi-Level Aggregation</h4>
+<table>
+<tbody><tr><th>Method</th><th>Produces</th><th>Equivalent To</th></tr>
+<tr><td><strong>GROUPING SETS</strong></td><td>Custom combinations</td><td>Multiple GROUP BYs UNIONed</td></tr>
+<tr><td><strong>ROLLUP(a,b)</strong></td><td>Hierarchical: (a,b),(a),()</td><td>GROUPING SETS((a,b),(a),())</td></tr>
+<tr><td><strong>CUBE(a,b)</strong></td><td>All combos: (a,b),(a),(b),()</td><td>GROUPING SETS((a,b),(a),(b),())</td></tr>
+<tr><td><strong>GROUP BY ALL</strong></td><td>Single-level (auto-infer)</td><td>GROUP BY col1, col2 explicit</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: ROLLUP = hierarchical (drill-down). CUBE = all combinations. GROUPING SETS = custom.</div>
+</div>
+
+<div class="concept">
+<h4>📦 Family: NULL Functions</h4>
+<table>
+<tbody><tr><th>Function</th><th>Behavior</th><th>Use Case</th></tr>
+<tr><td><code>COALESCE(a,b,c)</code></td><td>First non-NULL (multi-arg)</td><td>Fallback chain</td></tr>
+<tr><td><code>IFNULL(a,b)</code></td><td>If a NULL → b</td><td>Simple 2-arg default</td></tr>
+<tr><td><code>NVL(a,b)</code></td><td>Same as IFNULL</td><td>Oracle compatibility</td></tr>
+<tr><td><code>NVL2(a,b,c)</code></td><td>If a NOT NULL → b, else c</td><td>Conditional on NULL status</td></tr>
+<tr><td><code>NULLIF(a,b)</code></td><td>NULL if a=b, else a</td><td>Avoid div by zero: x/NULLIF(y,0)</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: col = NULL → UNKNOWN (not TRUE). Use IS NULL. NULLIF makes values NULL, doesn't replace them.</div>
+</div>
+
+<div class="concept">
+<h4>📦 Family: Data Modification Statements</h4>
+<table>
+<tbody><tr><th>Statement</th><th>Operation</th><th>Use When</th><th>Key Constraint</th></tr>
+<tr><td><code>INSERT INTO</code></td><td>Append rows</td><td>Adding new data</td><td>May create duplicates</td></tr>
+<tr><td><code>INSERT OVERWRITE</code></td><td>Replace partition/table</td><td>Full refresh of partition</td><td>Replaces ALL data in target</td></tr>
+<tr><td><code>MERGE INTO</code></td><td>Upsert (insert+update+delete)</td><td>SCD, incremental sync</td><td>ON must give unique match</td></tr>
+<tr><td><code>UPDATE</code></td><td>Modify existing rows</td><td>Change specific values</td><td>WHERE required (else all rows)</td></tr>
+<tr><td><code>DELETE</code></td><td>Remove rows</td><td>GDPR/compliance deletion</td><td>Creates tombstones in Delta</td></tr>
+<tr><td><code>COPY INTO</code></td><td>Idempotent file load</td><td>Batch file ingestion</td><td>Append-only; no update logic</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: MERGE with multiple matches per target = error. Always ensure 1:1 on ON condition.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 6 ====== -->
+<h2>6. Joins</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Join Types</h4>
+<table>
+<tbody><tr><th>Type</th><th>Returns</th></tr>
+<tr><td>INNER</td><td>Matching rows only</td></tr>
+<tr><td>LEFT</td><td>All left + matching right (NULL if no match)</td></tr>
+<tr><td>RIGHT</td><td>All right + matching left</td></tr>
+<tr><td>FULL OUTER</td><td>All rows from both</td></tr>
+<tr><td>CROSS</td><td>Cartesian product</td></tr>
+<tr><td>LEFT SEMI</td><td>Left rows with match (no right columns)</td></tr>
+<tr><td>LEFT ANTI</td><td>Left rows with NO match</td></tr>
+</tbody></table>
+</div>
+
+<div class="concept">
+<h4>One-to-Many Fan-out Problem</h4>
+<p>Joining fact to detail with duplicate keys inflates SUM/COUNT.</p>
+<div class="tip">Exam: Always check join key uniqueness. Aggregate before join or deduplicate.</div>
+</div>
+
+<div class="concept">
+<h4>LEFT JOIN More Rows Than Left Table <span class="badge">✅ NEW</span></h4>
+<p>Cause: duplicate join keys in RIGHT table. Each left row matches multiple right rows.</p>
+</div>
+
+<div class="concept">
+<h4>Anti Join: NOT EXISTS vs NOT IN</h4>
+<ul>
+<li>NOT IN + NULLs in subquery = empty/wrong result</li>
+<li>Use NOT EXISTS or LEFT ANTI JOIN (NULL-safe)</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Semi Join <span class="badge">✅ NEW</span></h4>
+<p><code>WHERE id IN (SELECT...)</code> optimized as LEFT SEMI JOIN. EXISTS short-circuits after one match.</p>
+</div>
+
+<div class="concept">
+<h4>Broadcast Join <span class="badge">✅ NEW</span></h4>
+<p>Broadcast small dimension to avoid expensive shuffle of large fact table.</p>
+<pre>SELECT /*+ BROADCAST(dim) */ * FROM fact JOIN dim ON ...</pre>
+<div class="tip">Exam: BroadcastHashJoin eliminates shuffle. Use for small dimension (~10MB).</div>
+</div>
+
+<div class="concept">
+<h4>Lateral Join <span class="badge">✅ NEW</span></h4>
+<p>Right-side subquery can reference left-side columns. Useful for top-N per group and row-generating functions.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Join Performance Strategies</h4>
+<table>
+<tbody><tr><th>Strategy</th><th>Mechanism</th><th>When Used</th><th>Cost</th></tr>
+<tr><td><strong>BroadcastHashJoin</strong></td><td>Small table sent to all nodes</td><td>One side &lt; ~10MB</td><td>Low (no shuffle of large table)</td></tr>
+<tr><td><strong>SortMergeJoin</strong></td><td>Both shuffled + sorted</td><td>Both tables large</td><td>High (full shuffle both sides)</td></tr>
+<tr><td><strong>ShuffleHashJoin</strong></td><td>Hash on key + shuffle</td><td>One side smaller (but &gt;broadcast)</td><td>Medium</td></tr>
+</tbody></table>
+<pre>-- Force broadcast when optimizer misses small table
+SELECT /*+ BROADCAST(dim) */ * FROM fact_1B JOIN dim_20MB ON ...</pre>
+<div class="tip">Exam trap: SortMergeJoin for 20MB dim + 1B fact = bad. Hint BROADCAST to eliminate expensive shuffle.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 7 ====== -->
+<h2>7. Window Functions</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Window Function Syntax</h4>
+<pre>function() OVER (
+  PARTITION BY group_col
+  ORDER BY sort_col
+  ROWS/RANGE frame_spec
+)</pre>
+</div>
+
+<div class="concept">
+<h4>ROW_NUMBER vs RANK vs DENSE_RANK</h4>
+<table>
+<tbody><tr><th>Function</th><th>Ties (10,20,20,30)</th></tr>
+<tr><td>ROW_NUMBER()</td><td>1, 2, 3, 4 (unique)</td></tr>
+<tr><td>RANK()</td><td>1, 2, 2, 4 (gaps)</td></tr>
+<tr><td>DENSE_RANK()</td><td>1, 2, 2, 3 (no gaps)</td></tr>
+</tbody></table>
+<div class="tip">Exam: ROW_NUMBER for latest-per-group. RANK for competition. DENSE_RANK for top-N values.</div>
+</div>
+
+<div class="concept">
+<h4>LAG / LEAD <span class="badge">✅ NEW</span></h4>
+<pre>revenue - LAG(revenue,1) OVER (ORDER BY month) AS mom_change</pre>
+<ul>
+<li>LAG = previous row value; LEAD = next row value</li>
+<li>First row: LAG returns NULL (not zero, not error)</li>
+<li>3rd argument = custom default: <code>LAG(rev,1,0)</code></li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Running Total / Cumulative Sum</h4>
+<pre>SUM(amt) OVER (PARTITION BY region, year ORDER BY month
+  ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)</pre>
+<div class="tip">Exam: Partition by BOTH region AND year to reset at each year boundary.</div>
+</div>
+
+<div class="concept">
+<h4>ROWS vs RANGE <span class="badge">✅ NEW</span></h4>
+<ul>
+<li><strong>ROWS:</strong> Physical positions (exact row count)</li>
+<li><strong>RANGE:</strong> Logical value-based (peers with same value treated equally)</li>
+</ul>
+<div class="tip">Exam: ROWS = positional. RANGE = value-based. NOT interchangeable.</div>
+</div>
+
+<div class="concept">
+<h4>QUALIFY <span class="badge">✅ NEW</span></h4>
+<p>Filters window function results directly without subquery wrapper.</p>
+<pre>SELECT * FROM orders
+QUALIFY ROW_NUMBER() OVER (PARTITION BY cust ORDER BY dt DESC) = 1;</pre>
+<div class="tip">Exam: QUALIFY ≠ HAVING. It filters on window results. No CTE/subquery needed.</div>
+</div>
+
+<div class="concept">
+<h4>Top-N Per Group <span class="badge">✅ NEW</span></h4>
+<p>ROW_NUMBER/RANK + PARTITION BY + ORDER BY + filter rank &lt;= N.</p>
+<div class="tip">Exam: Standard pattern for top-N per group (not LIMIT, not TABLESAMPLE).</div>
+</div>
+
+<div class="concept">
+<h4>Gap Detection with LEAD <span class="badge">✅ NEW</span></h4>
+<pre>SELECT id, LEAD(id) OVER (ORDER BY id) as next_id
+FROM orders
+HAVING next_id - id &gt; 1; -- gaps exist here</pre>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Complete Window Function Toolkit</h4>
+<table>
+<tbody><tr><th>Function</th><th>Returns</th><th>Use Case</th></tr>
+<tr><td><code>ROW_NUMBER()</code></td><td>Unique sequential int</td><td>Dedup / latest per group</td></tr>
+<tr><td><code>RANK()</code></td><td>Rank with gaps on ties</td><td>Competition (Olympic medals)</td></tr>
+<tr><td><code>DENSE_RANK()</code></td><td>Rank without gaps</td><td>Top-N distinct values</td></tr>
+<tr><td><code>NTILE(n)</code></td><td>Bucket number (1 to n)</td><td>Quartiles/percentiles/deciles</td></tr>
+<tr><td><code>LAG(col,n)</code></td><td>Previous row's value</td><td>Period-over-period change</td></tr>
+<tr><td><code>LEAD(col,n)</code></td><td>Next row's value</td><td>Forward-looking comparison</td></tr>
+<tr><td><code>FIRST_VALUE(col)</code></td><td>First in window frame</td><td>Baseline comparison</td></tr>
+<tr><td><code>LAST_VALUE(col)</code></td><td>Last in frame</td><td>Most recent in window</td></tr>
+<tr><td><code>PERCENT_RANK()</code></td><td>Relative rank 0-1</td><td>Percentile positioning</td></tr>
+<tr><td><code>CUME_DIST()</code></td><td>Cumulative distribution</td><td>"% at or below this"</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: LAST_VALUE default frame only sees up to current row! Use ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 8 ====== -->
+<h2>8. SQL Functions &amp; Patterns</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Date Functions <span class="badge">✅ NEW</span></h4>
+<table>
+<tbody><tr><th>Function</th><th>Purpose</th></tr>
+<tr><td><code>LAST_DAY(date)</code></td><td>Last calendar day of month</td></tr>
+<tr><td><code>DATEDIFF(end, start)</code></td><td>Days between two dates</td></tr>
+<tr><td><code>DATE_ADD(date, n)</code></td><td>Add n days</td></tr>
+<tr><td><code>TRUNC(date, 'MONTH')</code></td><td>First day of month</td></tr>
+<tr><td><code>DAYOFWEEK(date)</code></td><td>Day number (1=Sun...7=Sat)</td></tr>
+<tr><td><code>CURRENT_DATE()</code></td><td>Today's date</td></tr>
+</tbody></table>
+<div class="tip">Exam: LAST_DAY() = most direct for last day of month. No built-in NETWORKDAYS.</div>
+</div>
+
+<div class="concept">
+<h4>Business Days Calculation <span class="badge">✅ NEW</span></h4>
+<p>No NETWORKDAYS in Databricks. Use: SEQUENCE + filter DAYOFWEEK + COUNT.</p>
+<pre>SELECT SIZE(FILTER(SEQUENCE(start, end), d -&gt; DAYOFWEEK(d) BETWEEN 2 AND 6));</pre>
+</div>
+
+<div class="concept">
+<h4>String Functions <span class="badge">✅ NEW</span></h4>
+<table>
+<tbody><tr><th>Function</th><th>Purpose</th></tr>
+<tr><td><code>SUBSTRING_INDEX(str,'@',-1)</code></td><td>Domain from email</td></tr>
+<tr><td><code>SPLIT(str, delim)</code></td><td>Array of parts</td></tr>
+<tr><td><code>CONCAT / ||</code></td><td>String concatenation</td></tr>
+<tr><td><code>UPPER/LOWER/TRIM</code></td><td>Case/whitespace</td></tr>
+</tbody></table>
+</div>
+
+<div class="concept">
+<h4>PIVOT (Long to Wide) <span class="badge">✅ NEW</span></h4>
+<pre>SELECT * FROM monthly_data
+PIVOT (SUM(revenue) FOR product_type IN ('Loans','Deposits','Cards'));</pre>
+<p>Rotates row values into columns. Alternative: conditional aggregation with CASE.</p>
+</div>
+
+<div class="concept">
+<h4>LATERAL VIEW EXPLODE <span class="badge">✅ NEW</span></h4>
+<pre>SELECT id, item FROM orders
+LATERAL VIEW EXPLODE(items_array) AS item;</pre>
+<p>Unnests array elements into individual rows.</p>
+</div>
+
+<div class="concept">
+<h4>Running Difference (Delta) <span class="badge">✅ NEW</span></h4>
+<pre>value - LAG(value) OVER (ORDER BY time) AS row_delta</pre>
+<p>Essential for MoM/WoW growth calculations.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Data Reshaping Operations</h4>
+<table>
+<tbody><tr><th>Operation</th><th>Direction</th><th>SQL</th><th>Use Case</th></tr>
+<tr><td><strong>PIVOT</strong></td><td>Long → Wide</td><td><code>PIVOT(agg FOR col IN (vals))</code></td><td>Products/months as columns</td></tr>
+<tr><td><strong>UNPIVOT</strong></td><td>Wide → Long</td><td><code>UNPIVOT(val FOR col IN (c1,c2))</code></td><td>Normalize wide tables</td></tr>
+<tr><td><strong>EXPLODE</strong></td><td>Array → Rows</td><td><code>LATERAL VIEW EXPLODE(arr)</code></td><td>Unnest JSON arrays</td></tr>
+<tr><td><strong>COLLECT_LIST/SET</strong></td><td>Rows → Array</td><td><code>COLLECT_LIST(col)</code></td><td>Aggregate into array per group</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: PIVOT needs explicit IN-list. UNPIVOT is inverse. EXPLODE multiplies rows (fan-out!).</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 9 ====== -->
+<h2>9. Performance Optimization</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Partition Pruning <span class="badge">✅ NEW</span></h4>
+<p>Engine skips entire partitions not matching filter predicates. Dramatically reduces data scanned.</p>
+<div class="tip">Exam: Filter on partition column = huge speedup (reads only relevant partitions).</div>
+</div>
+
+<div class="concept">
+<h4>ZORDER Effectiveness <span class="badge">✅ NEW</span></h4>
+<ul>
+<li>Best on low-to-medium cardinality columns used in WHERE</li>
+<li>Very high cardinality = less co-location benefit</li>
+<li>Choose columns frequently filtered, not all columns</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Broadcast Join</h4>
+<p>Small table (&lt;10MB) broadcast to all nodes avoids shuffle of large table.</p>
+</div>
+
+<div class="concept">
+<h4>Incremental Processing <span class="badge">✅ NEW</span></h4>
+<p>Filter on date column to process only new/changed records since last run.</p>
+<div class="tip">Exam: Avoid re-scanning entire history daily. Use WHERE date &gt;= last_run_date.</div>
+</div>
+
+<div class="concept">
+<h4>Query Profile <span class="badge">✅ NEW</span></h4>
+<p>Diagnose slow queries: check for full scans, missing filters, unnecessary shuffles, spills.</p>
+</div>
+
+<div class="concept">
+<h4>Idempotent Pipelines <span class="badge">✅ NEW</span></h4>
+<p>Produce same output regardless of how many times they run. Critical for safe retries.</p>
+</div>
+
+</div>
+
+<!-- ====== SECTION 10 ====== -->
+<h2>10. Dashboards, Alerts &amp; Parameters</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Query Parameters</h4>
+<p>Input controls passing dynamic values (date, region) into dashboard queries without editing SQL.</p>
+<pre>SELECT * FROM sales WHERE region = :region AND date &gt;= :start_date;</pre>
+<div class="tip">Exam: Parameters let business users filter interactively without touching SQL.</div>
+</div>
+
+<div class="concept">
+<h4>SQL Alerts</h4>
+<p>Scheduled queries + threshold conditions + notification destinations (email/Slack).</p>
+<ul>
+<li>Create query that returns a value</li>
+<li>Set condition (value drops below X)</li>
+<li>Set schedule (e.g., every hour)</li>
+<li>Configure notification destination</li>
+</ul>
+<div class="tip">Exam: SQL Alert = scheduled query + threshold + notification. Not custom SMTP scripts.</div>
+</div>
+
+<div class="concept">
+<h4>Dashboard Refresh / Stale Data <span class="badge">✅ NEW</span></h4>
+<p>Stale data at 9AM? Likely cause: dashboard refresh schedule runs BEFORE ETL completes.</p>
+<div class="tip">Exam: Fix by scheduling dashboard refresh AFTER ETL job finishes, not before.</div>
+</div>
+
+<div class="concept">
+<h4>Debugging Zero-Row Results <span class="badge">✅ NEW</span></h4>
+<p>Remove filters one at a time. Verify filter values actually exist in data.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Scheduling &amp; Orchestration</h4>
+<table>
+<tbody><tr><th>Feature</th><th>What It Does</th><th>Use For</th></tr>
+<tr><td><strong>SQL Alert</strong></td><td>Scheduled query + threshold + notify</td><td>KPI monitoring; anomaly detection</td></tr>
+<tr><td><strong>Scheduled Query</strong></td><td>Query on cron; caches results</td><td>Dashboard data freshness</td></tr>
+<tr><td><strong>Databricks Job</strong></td><td>Orchestrate tasks with dependencies</td><td>ETL pipelines; complex DAGs</td></tr>
+<tr><td><strong>Dashboard Refresh</strong></td><td>Periodic re-execution of queries</td><td>Keep dashboards current</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: Stale dashboard = refresh schedule runs BEFORE ETL. Fix: schedule AFTER ETL completes.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 11 ====== -->
+<h2>11. Visualization Best Practices</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Chart Type Selection <span class="badge">✅ NEW</span></h4>
+<table>
+<tbody><tr><th>Need</th><th>Best Chart</th></tr>
+<tr><td>Bars (absolute) + Line (rate) on same axis</td><td><strong>Combo chart</strong> (dual y-axis)</td></tr>
+<tr><td>Distribution + outliers across groups</td><td><strong>Box plot</strong></td></tr>
+<tr><td>Magnitude across 2 categorical dimensions</td><td><strong>Heatmap</strong></td></tr>
+<tr><td>Correlation between 2 continuous variables</td><td><strong>Scatter plot</strong></td></tr>
+<tr><td>Incremental +/- building to total</td><td><strong>Waterfall chart</strong></td></tr>
+<tr><td>Geographic distribution by region</td><td><strong>Choropleth (filled map)</strong></td></tr>
+<tr><td>Proportion/mix shift over time</td><td><strong>100% stacked bar</strong></td></tr>
+<tr><td>Trend with many time periods</td><td><strong>Line chart</strong> (continuity)</td></tr>
+<tr><td>Part-of-whole (few categories)</td><td><strong>Pie/donut</strong></td></tr>
+</tbody></table>
+</div>
+
+<div class="concept">
+<h4>Line vs Bar for Time Series <span class="badge">✅ NEW</span></h4>
+<p>Lines emphasize continuity and trend. With many periods, bars become cluttered while lines remain readable.</p>
+</div>
+
+<div class="concept">
+<h4>100% Stacked Bar <span class="badge">✅ NEW</span></h4>
+<p>Normalizes each period to 100%. Shows proportion shifts, not absolute changes.</p>
+<div class="tip">Exam: Use 100% stacked when comparing composition/mix, NOT absolute magnitudes.</div>
+</div>
+
+<div class="concept">
+<h4>Counter Card Overload <span class="badge">✅ NEW</span></h4>
+<p>Too many isolated KPI numbers = cognitive overload. Better: group, prioritize, add trend context.</p>
+</div>
+
+<div class="concept">
+<h4>Combo Chart <span class="badge">✅ NEW</span></h4>
+<p>Bars for absolute values + Line for rate/percentage on dual y-axes. Same time axis.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Visualization Anti-Patterns</h4>
+<table>
+<tbody><tr><th>Anti-Pattern</th><th>Problem</th><th>Fix</th></tr>
+<tr><td>Pie chart 10+ slices</td><td>Unreadable; hard to compare</td><td>Bar chart or treemap</td></tr>
+<tr><td>Dual-axis mismatched scales</td><td>Misleading correlation</td><td>Normalize or separate charts</td></tr>
+<tr><td>Truncated y-axis (not 0)</td><td>Exaggerates small differences</td><td>Start at 0 for bar charts</td></tr>
+<tr><td>15+ counter cards</td><td>Cognitive overload</td><td>Group KPIs; add sparklines</td></tr>
+<tr><td>Bar chart 50+ periods</td><td>Cluttered; loses trend</td><td>Use line chart</td></tr>
+<tr><td>3D charts</td><td>Distorts proportions</td><td>Always use 2D</td></tr>
+</tbody></table>
+</div>
+
+</div>
+
+<!-- ====== SECTION 12 ====== -->
+<h2>12. Data Quality</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Six Data Quality Dimensions</h4>
+<table>
+<tbody><tr><th>Dimension</th><th>Question</th><th>Example Violation</th></tr>
+<tr><td><strong>Accuracy</strong></td><td>Is data correct?</td><td>Wrong address</td></tr>
+<tr><td><strong>Completeness</strong></td><td>Is all data present?</td><td>Missing phone numbers</td></tr>
+<tr><td><strong>Consistency</strong></td><td>Same across systems?</td><td>Balance mismatch between reports</td></tr>
+<tr><td><strong>Timeliness</strong></td><td>Available on time?</td><td>Data arrives 2hrs after SLA</td></tr>
+<tr><td><strong>Uniqueness</strong></td><td>No duplicates?</td><td>Same customer_id appears twice</td></tr>
+<tr><td><strong>Validity</strong></td><td>Conforms to rules?</td><td>Email without @ symbol</td></tr>
+</tbody></table>
+<div class="tip">Exam: Dashboard total ≠ source total = Consistency. Late data = Timeliness. Duplicate PK = Uniqueness.</div>
+</div>
+
+<div class="concept">
+<h4>Detecting Duplicates <span class="badge">✅ NEW</span></h4>
+<pre>-- Detect
+SELECT key, COUNT(*) FROM t GROUP BY key HAVING COUNT(*) &gt; 1;
+-- Remove (keep latest)
+SELECT * FROM (
+  SELECT *, ROW_NUMBER() OVER (PARTITION BY key ORDER BY updated DESC) rn
+  FROM t
+) WHERE rn = 1;</pre>
+</div>
+
+<div class="concept">
+<h4>Data Profiling <span class="badge">✅ NEW</span></h4>
+<p>Systematically examine: distributions, null rates, cardinality, outliers, data types, value ranges, join keys.</p>
+<div class="tip">Exam: ALWAYS profile before analysis. Not just first 5 rows or row count.</div>
+</div>
+
+<div class="concept">
+<h4>Data Contracts <span class="badge">✅ NEW</span></h4>
+<p>Formal agreement: schema spec, freshness SLA, null guarantees, quality rules, breaking change process.</p>
+<p>Shifts quality responsibility to producers. Consumers can trust and depend on the data.</p>
+</div>
+
+<div class="concept">
+<h4>Data Freshness SLA <span class="badge">✅ NEW</span></h4>
+<p>Commitment that data updated by specific time. Monitor: compare last-modified timestamp vs deadline.</p>
+</div>
+
+<div class="concept">
+<h4>NULL Handling Best Practice <span class="badge">✅ NEW</span></h4>
+<p>Understand what NULL represents in context (unknown vs not-applicable vs missing). Never ignore silently.</p>
+<ul>
+<li>Use COALESCE/IFNULL for explicit handling</li>
+<li>NULL propagates in arithmetic</li>
+<li>COUNT(col) excludes NULLs; COUNT(*) includes all</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Data Validation After Load <span class="badge">✅ NEW</span></h4>
+<p>Compare row counts + key aggregate totals (SUM, DISTINCT counts) between source and target.</p>
+</div>
+
+<div class="concept">
+<h4>Expectations (DLT/SDP) <span class="badge">✅ NEW</span></h4>
+<p>Declarative EXPECT rules validating incoming data. Can warn, drop invalid rows, or fail pipeline.</p>
+</div>
+
+<div class="concept">
+<h4>PII Handling <span class="badge">✅ NEW</span></h4>
+<p>Discover unmasked PII → Report to governance team immediately. Do NOT use, share, or unilaterally delete.</p>
+</div>
+
+</div>
+
+<!-- ====== SECTION 13 ====== -->
+<h2>13. Analytical Methods</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Cohort Analysis <span class="badge">✅ NEW</span></h4>
+<p>Group users by shared characteristic (e.g., signup month) and track behavior over time.</p>
+<p>Reveals lifecycle patterns, retention curves, behavioral shifts.</p>
+</div>
+
+<div class="concept">
+<h4>RFM Analysis <span class="badge">✅ NEW</span></h4>
+<p><strong>Recency, Frequency, Monetary</strong> — segments customers by purchase behavior.</p>
+<ul>
+<li>Recency: how recently they purchased</li>
+<li>Frequency: how often they purchase</li>
+<li>Monetary: how much they spend</li>
+</ul>
+<p>Identifies high-value and at-risk customer groups.</p>
+</div>
+
+<div class="concept">
+<h4>Funnel Analysis <span class="badge">✅ NEW</span></h4>
+<p>Shows step-by-step drop-off rates. Pinpoints exactly WHERE in process users are lost.</p>
+<div class="tip">Exam: Funnel shows WHICH step loses users. Simple conversion rate only shows final number.</div>
+</div>
+
+<div class="concept">
+<h4>Pareto (80/20) Analysis <span class="badge">✅ NEW</span></h4>
+<p>Identifies vital few contributors (e.g., 20% of customers generating 80% of revenue).</p>
+<p>Focus resources on high-impact segments.</p>
+</div>
+
+<div class="concept">
+<h4>Seasonality <span class="badge">✅ NEW</span></h4>
+<p>Regular repeating patterns at fixed intervals (daily/weekly/yearly).</p>
+<div class="tip">Exam: Ignoring seasonality → false anomaly alerts and incorrect trend interpretation.</div>
+</div>
+
+<div class="concept">
+<h4>Outlier Handling <span class="badge">✅ NEW</span></h4>
+<p>Investigate first: data error (remove) or genuine extreme (keep/cap). Domain knowledge guides decision.</p>
+</div>
+
+<div class="concept">
+<h4>KPI Design (SMART) <span class="badge">✅ NEW</span></h4>
+<p>Good KPI = Specific, Measurable, Actionable, Relevant, Time-bound + clear ownership + target.</p>
+</div>
+
+<div class="concept">
+<h4>North-Star Metric <span class="badge">✅ NEW</span></h4>
+<p>When metrics conflict (open rate vs conversion), define single unified metric tied to ultimate business outcome.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: Analytical Technique Selection</h4>
+<table>
+<tbody><tr><th>Business Question</th><th>Technique</th><th>Key Output</th></tr>
+<tr><td>"Which customers churn risk?"</td><td><strong>RFM Analysis</strong></td><td>Customer segments by value/risk</td></tr>
+<tr><td>"Where do users drop off?"</td><td><strong>Funnel Analysis</strong></td><td>Step-by-step conversion rates</td></tr>
+<tr><td>"Do Jan signups retain better?"</td><td><strong>Cohort Analysis</strong></td><td>Retention curves by cohort</td></tr>
+<tr><td>"Which 20% drive 80% revenue?"</td><td><strong>Pareto Analysis</strong></td><td>Cumulative contribution</td></tr>
+<tr><td>"Is Dec spike real or seasonal?"</td><td><strong>Seasonality Decomposition</strong></td><td>Trend vs seasonal vs residual</td></tr>
+<tr><td>"Why revenue dropped 100M→85M?"</td><td><strong>Waterfall/Bridge</strong></td><td>Component +/- contributions</td></tr>
+</tbody></table>
+</div>
+
+</div>
+
+<!-- ====== SECTION 14 ====== -->
+<h2>14. ML &amp; Statistics Fundamentals</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Precision vs Recall <span class="badge">✅ NEW</span></h4>
+<table>
+<tbody><tr><th>Metric</th><th>Focus</th><th>Prioritize When</th></tr>
+<tr><td><strong>Precision</strong></td><td>Of predicted positives, how many correct?</td><td>False positives costly (spam filter)</td></tr>
+<tr><td><strong>Recall</strong></td><td>Of actual positives, how many caught?</td><td>False negatives costly (fraud detection)</td></tr>
+</tbody></table>
+<div class="tip">Exam: Fraud = prioritize RECALL (catch all fraud, accept some false alarms).</div>
+</div>
+
+<div class="concept">
+<h4>Accuracy Trap (Imbalanced Data) <span class="badge">✅ NEW</span></h4>
+<p>99.7% accuracy with 0.3% fraud rate = model predicts majority class for everything, catches zero fraud.</p>
+<div class="tip">Exam: High accuracy ≠ good model when classes are imbalanced. Use precision/recall/F1/AUC.</div>
+</div>
+
+<div class="concept">
+<h4>Overfitting <span class="badge">✅ NEW</span></h4>
+<p>High training score + much lower test score = model memorized noise, doesn't generalize.</p>
+<p>98% train, 72% test = classic overfitting signal.</p>
+</div>
+
+<div class="concept">
+<h4>Data Leakage <span class="badge">✅ NEW</span></h4>
+<p>Using future information or target-correlated features unavailable at prediction time.</p>
+<ul>
+<li>Inflates metrics artificially</li>
+<li>Model fails in production</li>
+<li>Fix: split first, preprocess separately</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Distribution Shift <span class="badge">✅ NEW</span></h4>
+<p>Old test set (2022) may not represent current production (2026). Behavior/policies change over time.</p>
+<div class="tip">Exam: Test data must share same distribution as production for metrics to be reliable.</div>
+</div>
+
+<div class="concept">
+<h4>Stratified Sampling <span class="badge">✅ NEW</span></h4>
+<p>For rare events (0.01% fraud), random sampling yields too few cases. Stratified sampling preserves class proportions.</p>
+</div>
+
+<div class="concept">
+<h4>Survivorship Bias <span class="badge">✅ NEW</span></h4>
+<p>Analyzing only surviving/successful cases while missing failures. Skews conclusions optimistically.</p>
+<p>Fix: Include full population at starting point.</p>
+</div>
+
+
+<div class="concept">
+<h4>📦 Family: ML Evaluation Metrics</h4>
+<table>
+<tbody><tr><th>Metric</th><th>Formula</th><th>Prioritize When</th></tr>
+<tr><td><strong>Precision</strong></td><td>TP/(TP+FP)</td><td>FP costly (spam filter)</td></tr>
+<tr><td><strong>Recall</strong></td><td>TP/(TP+FN)</td><td>FN costly (fraud, cancer)</td></tr>
+<tr><td><strong>F1-Score</strong></td><td>2*(P*R)/(P+R)</td><td>Balance P and R</td></tr>
+<tr><td><strong>Accuracy</strong></td><td>(TP+TN)/Total</td><td>Balanced classes ONLY!</td></tr>
+<tr><td><strong>AUC-ROC</strong></td><td>Area under ROC curve</td><td>Overall discrimination ability</td></tr>
+<tr><td><strong>Specificity</strong></td><td>TN/(TN+FP)</td><td>Minimize false alarms</td></tr>
+</tbody></table>
+<p><strong>Confusion Matrix:</strong> TP=correct catch, FP=false alarm, FN=missed case, TN=correct rejection</p>
+<div class="tip">Exam trap: 99.7% accuracy with 0.3% fraud = useless (predicts majority). Use recall/F1/AUC.</div>
+</div>
+
+<div class="concept">
+<h4>📦 Family: Sampling Methods</h4>
+<table>
+<tbody><tr><th>Method</th><th>How</th><th>Best For</th><th>Risk</th></tr>
+<tr><td><strong>Random</strong></td><td>Each row equal probability</td><td>Balanced data; exploration</td><td>May miss rare events</td></tr>
+<tr><td><strong>Stratified</strong></td><td>Preserve proportions</td><td>Imbalanced classes (fraud 0.01%)</td><td>Must know strata</td></tr>
+<tr><td><strong>Systematic</strong></td><td>Every Nth row</td><td>Ordered data; quick</td><td>Misses periodic patterns</td></tr>
+<tr><td><strong>Cluster</strong></td><td>Random groups, all within</td><td>Geographic/org units</td><td>High variance between clusters</td></tr>
+<tr><td><strong>Oversampling</strong></td><td>Duplicate minority class</td><td>Training ML on imbalanced</td><td>Overfitting risk</td></tr>
+</tbody></table>
+<div class="tip">Exam trap: 0.01% fraud in 50K random sample ≈ 5 cases (too few!). Use stratified sampling.</div>
+</div>
+
+</div>
+
+<!-- ====== SECTION 15 ====== -->
+<h2>15. Communication &amp; Ethics</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Pyramid Principle <span class="badge">✅ NEW</span></h4>
+<p>Lead with conclusion/answer first, then supporting arguments, then evidence. Respects executives' time.</p>
+</div>
+
+<div class="concept">
+<h4>Data Storytelling <span class="badge">✅ NEW</span></h4>
+<p>Reporting = what happened. Storytelling = what + why + so-what + narrative arc. Drives action.</p>
+</div>
+
+<div class="concept">
+<h4>Presenting a KPI Drop <span class="badge">✅ NEW</span></h4>
+<p>Always include context: Is it seasonal? Which segments drove it? Data issue or real? Recommended next steps.</p>
+<div class="tip">Exam: Never present raw numbers without context. Context transforms numbers into insight.</div>
+</div>
+
+<div class="concept">
+<h4>Communicating Uncertainty <span class="badge">✅ NEW</span></h4>
+<p>Use confidence intervals, sensitivity analysis, explicit assumptions, data quality caveats.</p>
+</div>
+
+<div class="concept">
+<h4>Data Brief Structure <span class="badge">✅ NEW</span></h4>
+<p>Key Finding → Supporting Evidence → Business Implication → Recommended Action → Appendix.</p>
+</div>
+
+<div class="concept">
+<h4>Documentation <span class="badge">✅ NEW</span></h4>
+<p>Enables reproducibility, knowledge transfer, validation. Helps future self remember context.</p>
+</div>
+
+<div class="concept">
+<h4>Ethics: Selective Reporting <span class="badge">✅ NEW</span></h4>
+<p>Never exclude valid unfavorable data. Propose alternatives (segmentation, context) but maintain integrity.</p>
+</div>
+
+</div>
+
+<!-- ====== SECTION 16 ====== -->
+<h2>16. Data Modeling <span class="badge">✅ NEW</span></h2>
+<div class="section">
+
+<div class="concept">
+<h4>Star Schema</h4>
+<p>Fact table (measures) surrounded by dimension tables (descriptive attributes). Optimized for analytics.</p>
+<ul>
+<li><strong>Fact:</strong> Numeric measures, foreign keys (e.g., sales_amount, quantity)</li>
+<li><strong>Dimension:</strong> Descriptive context (e.g., customer_name, product_category, date)</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>Conformed Dimension <span class="badge">✅ NEW</span></h4>
+<p>Shared identically across multiple fact tables. Enables consistent cross-process analysis.</p>
+<p>Examples: date_dim, customer_dim used by sales AND service facts.</p>
+</div>
+
+<div class="concept">
+<h4>Normalization vs Denormalization <span class="badge">✅ NEW</span></h4>
+<table>
+<tbody><tr><th></th><th>Normalization</th><th>Denormalization</th></tr>
+<tr><td>Redundancy</td><td>Minimal</td><td>Intentional redundancy</td></tr>
+<tr><td>Best for</td><td>OLTP (write-heavy)</td><td>OLAP/Analytics (read-heavy)</td></tr>
+<tr><td>Joins</td><td>Many (more tables)</td><td>Fewer (pre-joined)</td></tr>
+</tbody></table>
+</div>
+
+<div class="concept">
+<h4>Medallion Architecture (Bronze/Silver/Gold)</h4>
+<ul>
+<li><strong>Bronze:</strong> Raw ingestion (as-is from source)</li>
+<li><strong>Silver:</strong> Cleaned, validated, conformed</li>
+<li><strong>Gold:</strong> Business-level aggregates, ready for BI</li>
+</ul>
+</div>
+
+</div>
+
+<!-- ====== SECTION 17 ====== -->
+<h2>17. PySpark Essentials <span class="badge">✅ NEW</span></h2>
+<div class="section">
+
+<div class="concept">
+<h4>Transformations vs Actions</h4>
+<ul>
+<li><strong>Transformations (lazy):</strong> filter, select, join, withColumn — build execution plan</li>
+<li><strong>Actions (trigger execution):</strong> count, collect, show, write — materialize results</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>select() vs withColumn()</h4>
+<ul>
+<li><code>select('a','b',expr)</code> — returns only specified columns</li>
+<li><code>withColumn('new',expr)</code> — returns ALL columns + new/replaced one</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>repartition() vs coalesce()</h4>
+<ul>
+<li><code>repartition(N)</code> — full shuffle (increase or decrease partitions)</li>
+<li><code>coalesce(N)</code> — reduces partitions without full shuffle (cheaper)</li>
+</ul>
+</div>
+
+<div class="concept">
+<h4>cache() / persist()</h4>
+<p>Store DataFrame in memory to avoid recomputation when reused multiple times. Unpersist when done.</p>
+</div>
+
+<div class="concept">
+<h4>Write to Delta</h4>
+<pre>df.write.format('delta').mode('overwrite').saveAsTable('catalog.schema.table')</pre>
+<p>Modes: overwrite, append, ignore, error.</p>
+</div>
+
+</div>
+
+<!-- ====== PRIORITY RANKINGS ====== -->
+<h2>18. High-Probability Exam Topics</h2>
+<div class="section">
+
+<div class="concept">
+<h4>Priority 1 — Must Know (appears in 60%+ of questions)</h4>
+<div class="priority-1">
+<ul>
+<li>SQL execution order (WHERE vs HAVING)</li>
+<li>Window functions: ROW_NUMBER, RANK, LAG/LEAD, running totals</li>
+<li>JOIN types and fan-out problem</li>
+<li>NULL handling (AVG skips NULLs, COUNT(*) vs COUNT(col))</li>
+<li>Unity Catalog permissions (USE CATALOG + USE SCHEMA + SELECT)</li>
+<li>Delta Lake: Time Travel, DESCRIBE HISTORY, OPTIMIZE/VACUUM</li>
+<li>Managed vs External tables (DROP behavior)</li>
+<li>SQL Warehouse: Serverless, scale to zero</li>
+<li>Data Quality dimensions (consistency, timeliness, uniqueness)</li>
+<li>Dashboard security (viewer identity)</li>
+<li>CASE WHEN evaluation order</li>
+<li>Set operations (UNION ALL vs UNION)</li>
+<li>Anti-join: NOT EXISTS vs NOT IN with NULLs</li>
+</ul>
+</div>
+</div>
+
+<div class="concept">
+<h4>Priority 2 — Frequently Tested (30-60%)</h4>
+<div class="priority-2">
+<ul>
+<li>Visualization: chart type selection (combo, box plot, heatmap, scatter)</li>
+<li>QUALIFY clause</li>
+<li>MERGE statement (unique match requirement)</li>
+<li>CTE and Recursive CTE</li>
+<li>Column masking / Row filters</li>
+<li>Materialized View vs Regular View</li>
+<li>Streaming Tables</li>
+<li>SQL Alerts (configuration)</li>
+<li>Query parameters</li>
+<li>Partition pruning / ZORDER effectiveness</li>
+<li>Cohort, RFM, Funnel analysis</li>
+<li>ML: Recall vs Precision, Overfitting, Data Leakage</li>
+<li>Pyramid principle (communication)</li>
+<li>Data lineage</li>
+<li>Broadcast join</li>
+<li>GROUPING SETS / GROUP BY ALL</li>
+</ul>
+</div>
+</div>
+
+<div class="concept">
+<h4>Priority 3 — Nice to Know (10-30%)</h4>
+<div class="priority-3">
+<ul>
+<li>Liquid Clustering, Change Data Feed</li>
+<li>Delta Sharing protocol</li>
+<li>UC Volumes, External Locations, Tags</li>
+<li>LATERAL VIEW EXPLODE</li>
+<li>Lateral join</li>
+<li>Recursive CTE details</li>
+<li>TABLESAMPLE, EXPLAIN</li>
+<li>Photon engine, Auto Loader</li>
+<li>PySpark: repartition vs coalesce, cache</li>
+<li>Survivorship bias, stratified sampling</li>
+<li>Data contracts, freshness SLA</li>
+<li>Star schema, conformed dimensions</li>
+<li>Seasonality, Pareto analysis</li>
+<li>Information schema queries</li>
+<li>Idempotent pipelines</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+</div><!-- container -->
+
+
+  </div>
+  </body></html>
