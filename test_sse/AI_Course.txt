@@ -1,0 +1,7 @@
+https://academy.langchain.com/courses/foundation-introduction-to-langchain-pythonz
+https://academy.langchain.com/courses/intro-to-langgraph
+https://learn.deeplearning.ai/courses/mcp-build-rich-context-ai-apps-with-anthropic/lesson/fkbhh/introduction
+https://learn.deeplearning.ai/courses/safe-and-reliable-ai-via-guardrails/lesson/ph1aa/building-your-first-guardrail
+https://graphacademy.neo4j.com/courses/genai-mcp-build-custom-tools-python?category=intermediate
+https://academy.langchain.com/courses/deep-agents-with-langgraph
+https://academy.langchain.com/courses/deep-research-with-langgraph
