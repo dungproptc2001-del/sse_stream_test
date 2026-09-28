@@ -1,0 +1,107 @@
+# Opportunity Identification Methodology
+
+## Purpose
+Translate an approved Priority Area into specific, measurable economic opportunities or performance problems.
+
+Opportunity Identification answers:
+
+> **Where exactly should the Bank act?**
+
+It narrows the field before specific resource-consuming initiatives are assessed.
+
+## Trigger
+Run:
+- when an approved Priority Area requires action;
+- when Information Intake or a Significant Event reveals a specific opportunity;
+- when Weekly Monitoring identifies a concentrated product / sector / segment deviation;
+- on request of MC.
+
+## Opportunity universe
+Opportunities may be defined by:
+- PRODUCT;
+- COMMERCIAL-BANKING SECTOR;
+- CUSTOMER / RETAIL SEGMENT;
+- CHANNEL;
+- GEOGRAPHY;
+- PRICING / PROPOSITION;
+- PROCESS / OPERATING MODEL;
+- OTHER economically distinct area.
+
+## 1. Quantify the opportunity
+Where possible identify:
+- current PBT contribution;
+- plan PBT contribution;
+- PBT gap / upside;
+- cost-resource requirement;
+- ROE / RoRWA;
+- size / growth of addressable profit pool;
+- leading performance indicators.
+
+## 2. Establish causal thesis
+State:
+- why the opportunity / problem exists;
+- why it is actionable;
+- why the Bank is positioned to capture / fix it;
+- what is already reflected in the current plan;
+- expected horizon.
+
+## 3. Compare alternatives
+Compare the opportunity against:
+- doing nothing;
+- passive continuation of the current operating plan;
+- alternative opportunities competing for the same resources.
+
+## 4. Opportunity classification
+Classify:
+- `HIGH POTENTIAL`
+- `POTENTIAL`
+- `WATCH`
+- `NO ACTIONABLE OPPORTUNITY`
+
+## Opportunity Registry Schema
+
+| Field | Requirement |
+|---|---|
+| Opportunity ID | Unique |
+| Name | Required |
+| Opportunity type | PRODUCT / SECTOR / CUSTOMER SEGMENT / CHANNEL / GEOGRAPHY / PRICING / PROCESS / OTHER |
+| Related Priority Area ID | Required |
+| Business segment | Required |
+| Thesis | Max 5 lines |
+| Current PBT / plan PBT | Where measurable |
+| PBT gap / upside | Amount / range |
+| ROE / RoRWA | Where relevant |
+| Addressable opportunity | Amount / range |
+| Expected horizon | Required |
+| Confidence | HIGH / MEDIUM / LOW |
+| Supporting evidence | Max 3 |
+| Contrary evidence | Max 2 |
+| Main downside | Max 2 lines |
+| Reconsideration trigger | Explicit |
+| Status | HIGH POTENTIAL / POTENTIAL / WATCH / RECONSIDER / CLOSED |
+| Owner | Required |
+| Linked Initiative IDs | If any |
+| Last review | Date |
+| Next review | Date / trigger |
+
+## Recommendation to MC — Required output
+
+| Field | Requirement |
+|---|---|
+| Opportunity ID / proposed ID | Required |
+| Opportunity | Required |
+| Related Priority Area | Required |
+| Recommendation | HIGH POTENTIAL / POTENTIAL / WATCH / CLOSE |
+| Thesis | Max 5 lines |
+| Quantified PBT opportunity / gap | Required where measurable |
+| ROE / RoRWA | Where relevant |
+| Why now | Max 2 lines |
+| Confidence | HIGH / MEDIUM / LOW |
+| Main downside | Max 2 lines |
+| Owner / horizon | Required |
+| Next step if approved | DEVELOP INITIATIVE / RUN INVESTMENT ASSESSMENT / MONITOR / CLOSE |
+
+## Principles
+- Separate identification of the opportunity from assessment of the proposed solution.
+- Quantify the opportunity before debating a project where feasible.
+- Avoid choosing an initiative first and then constructing an opportunity narrative around it.
