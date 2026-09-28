@@ -1,0 +1,289 @@
+opportunity_id,title,business_unit,gate,tier,review_status,route,related_priority_area,initial_trigger,initial_trigger_rule,known_false_positive_risk,original_expected_pbt_bn,original_horizon,original_confidence,initial_recommendation,initial_opportunity_context,initial_thesis,initial_supporting_evidence,initial_contrary_evidence,initial_options_and_downside,initial_reconsideration_trigger,tracking_as_of_date,tracking_status,tracking_kpi_snapshot,current_forecast_pbt_bn,current_forecast_gap_bn,tracking_commentary,assessment_thesis_validation,assessment_variance_diagnosis,management_assessment,recommended_next_step,management_decision_required,current_reconsideration_trigger
+OPP-RBG-MER-01,Merchant Primacy & T-Shop Activation,RBG,GATE 2,TIER 1 MC,PENDING REVIEW,U-RBG-MERCHANT,PA-RBG-CASA-MERCHANT,"Approximately 1.0 million merchant customers reduced CASA by VND 22.5 Tn, with dual CASA-AUM churn identified as the clearest leakage pool. Tax-law changes increased the urgency to secure merchant operating cash flows through formal business-account and payment journeys.",OPCO-RBG-MERCHANT-01,"Business Account opening and T-Shop registration may increase before sustained operating inflows materialize. Adoption must therefore be distinguished from active usage, CASA primacy and realized TOI.",229.0,FY2026,MEDIUM,DEVELOP INITIATIVE,"Context:
+Pricing alone was unlikely to restore merchant CASA. The opportunity was to build primacy through Household Business Account, eTax and T-Shop/Merchant Hub, then deepen POS, QR, lending and merchant-to-SME usage.
+
+Why now:
+Tax-law changes were accelerating business formalization and cash-flow migration, while TCB already had a large merchant relationship base and digital payment infrastructure.
+
+Addressable pool:
+Existing merchants and household businesses eligible for Business Account, eTax, T-Shop and merchant-to-SME journeys.","If TCB anchors merchant operating flows through Business Account, eTax and T-Shop, daily CASA can be defended and subsequently deepened through payments, lending and SME conversion.","Approximately 1.0 million merchant customers recorded a combined VND 22.5 Tn CASA decline.
+Dual CASA-AUM churn was identified as the clearest leakage pool.
+Merchants with on-us business relationships showed stronger CASA progression than comparable off-us businesses.
+TCB already had merchant relationships, payment infrastructure and digital journeys to support activation.
+Tax-law changes created a time-sensitive window to capture formalized business cash flows.","Account opening does not prove CASA primacy.
+T-Shop registration does not prove sustained active usage.
+Merchant-to-SME funnel sizing varied across deck versions and remained assumption-sensitive.
+Realized value depended on conversion into operating inflows rather than registration volume.","Alternatives considered:
+Allow merchant runoff to continue without a dedicated intervention.
+Use broad pricing or generic retention campaigns.
+Build primacy through Business Account, eTax and T-Shop, then deepen usage and selectively convert merchants to SME relationships.
+
+Main downside:
+Weak activation, fragmented ownership or slow merchant-to-SME conversion could consume incentives without creating durable operating balances.","Reassess if Business Account and T-Shop adoption do not result in sustained active usage, operating inflows and realized TOI, or if incremental incentive cost exceeds the value retained and created.",2026-08-31,BEHIND,"T-Shop registered EOP: 127,936, +19.9% vs target.
+T-Shop active 7D EOP: 53,405, -28.9% vs target.
+FY action forecast: 59%, 93 Bn gap.
+FY TOI forecast: 84% vs revised target.",136.0,93.0,"Achievements:
+T-Shop registration reached approximately 127K and was about 20% above target, confirming strong reach and registration momentum.
+The strategy pivoted from pure HH acquisition toward portfolio activation, POS and lending cross-sell.
+
+Performance gaps:
+T-Shop active 7D customers remain materially below target despite strong registration.
+Frontline productivity and T-Shop go-to-market intensity remain insufficient to convert the registered base into sustained operating usage, CASA and TOI.
+HH acquisition slowed after tax-compliance threshold and deadline changes.
+
+Key risks:
+The HH target was revised from 500K to 290K and a material acquisition gap remains.
+T-Shop active rate remains low versus the original 80% ambition.
+Delayed or underpowered activation activities may slow monetization even when registrations remain on track.",PARTIALLY VALIDATED,INITIATIVE DESIGN | EXECUTION ? Registered-to-active conversion,"Implication for thesis:
+The merchant primacy thesis remains valid, but the binding constraint has shifted from acquisition and registration to active operating usage and monetization.
+
+Primary constraint:
+Registered-to-active conversion, compounded by uneven frontline productivity and insufficient activation intensity.
+
+Key learning:
+Registration-led growth is not sufficient.
+Value creation requires stronger usage activation, service support and frontline follow-through.
+Productivity should be measured against active usage and operating inflows, not accounts opened alone.
+
+Value outlook:
+The opportunity remains partially recoverable if resources are redirected toward activation, operating balances and cross-sell conversion.",CORRECT AND CONTINUE,"Decision required:
+Approve a focused activation recovery plan and reallocate effort away from broad registration growth.
+
+Management intervention:
+Intensify registered-to-active conversion through stronger service support, frontline follow-up and targeted usage incentives.
+Redirect acquisition capacity toward channels with measurable activation productivity.
+Accelerate T-Shop branding and go-to-market support for POS, QR and lending cross-sell.
+
+Next checkpoint:
+Monthly review of active rate, CASA inflow, frontline productivity and realized TOI.",Reconsider the initiative design if active rate and operating-flow economics do not improve after one full quarter.
+OPP-RBG-LOY-01,Loyalty Earn-Burn Recovery & MTB Uplift,RBG,GATE 2,TIER 1 MC,PENDING REVIEW,U-RBG-LOYALTY,PA-RBG-LOYALTY,"The loyalty model relied heavily on payment-led earning and one-off U-Point redemption, limiting persistent engagement, tier progression and cross-product behavior. The opportunity was to redesign Earn and Burn around broader relationship value and repeat usage.",OPCO-RBG-LOYALTY-01,"Short-term MTB uplift may reflect campaign participation rather than persistent relationship deepening. Incremental MTB should be validated through sustained balances, activity and product holding after incentives normalize.",126.0,FY2026,LOW,DEVELOP INITIATIVE,"Context: 
+Earn entry points were concentrated in payment products, while Burn centered on cashback and voucher redemption. This weakened the link between loyalty, relationship depth and MTB progression.
+
+Why now:
+CASA pressure and the need to deepen Inspire and non-tier engagement required a more persistent value proposition.
+
+Addressable pool:
+Inspire and non-tier customers with progression potential through salary, CASA/AUM, payments, savings, investment, lending, insurance and multi-product behavior.","If earning is extended across salary, balances, payments, wealth, lending and insurance, while burning shifts toward tier-based and merchant-funded benefits, customers will have stronger incentives to deepen relationships and progress to MTB.","The illustrative economics assumed approximately VND 105K monthly benefit value per customer versus approximately VND 140K monthly TOI uplift.
+The initial funding concept assumed around 30% funded by TCB and 70% by merchants, with an illustrative CIR of approximately 22%.
+Earn was designed to extend beyond payments to salary inflow, CASA/AUM, savings, investment, lending, insurance and multi-product combinations.
+Burn was designed to shift toward tier-based always-on benefits, merchant discounts and microburn.
+These economic figures were directional inputs to the original case, not committed outcomes.","Merchant coverage, discount depth and long-term partner commitment had not yet been secured.
+Customer response to unified tier scoring and tier-gated benefits was unproven.
+The TOI-to-PBT conversion bridge was not fully evidenced.
+Illustrative economics could change materially with customer mix, redemption and persistence.","Alternatives considered:
+Continue payment-only Earn and one-off Burn campaigns.
+Increase bank-funded rewards without redesigning tier logic.
+Build unified tier scoring, broaden Earn entry and shift Burn toward always-on merchant-funded benefits.
+
+Main downside:
+Insufficient merchant participation or weak behavioral response could increase programme cost without sustained MTB uplift or retention.","Reassess if incremental MTB and relationship value do not cover TCB-funded benefit cost, or if merchant co-funding and discount depth remain insufficient for an always-on proposition.",2026-08-31,BEHIND,"MTD earn customers: 3.092 Mn, +10% vs target.
+MTD burn customers: 874K, -21% vs target.
+Merchant voucher value: 289 Bn, 36% of 800 Bn ambition.
+FY TOI forecast: 68%, 40 Bn gap.",86.0,40.0,"Achievements:
+Big Boom validated that the earn scheme can activate customers at scale.
+August delivered approximately 3 million earning customers, the highest recorded level, mainly supported by the NTB login scheme.
+
+Performance gaps:
+Burn customers reached about 79% of target and require faster growth across customer tiers.
+Strong earn participation has not converted sufficiently into recurring burn behavior, MTB progression or realized economics.
+Burn-driving campaigns, customer communication and merchant-funded voucher acquisition are not yet operating at the intensity required to close the gap.
+
+Key risks:
+The feasibility of reaching 800 Bn merchant voucher value at the current pace remains unproven.
+Low customer awareness of perceived loyalty value limits burn.
+Stopping the merchant inflow scheme in Q4 may put the year-end earned-customer target at risk.",PARTIALLY VALIDATED,INITIATIVE DESIGN | EXECUTION ? Burn conversion and merchant funding,"Implication for thesis:
+The engagement thesis remains valid because earn activation has been demonstrated at scale.
+Engagement has not yet converted sufficiently into burn, MTB and economic value.
+
+Primary constraint:
+Burn conversion, perceived customer value and merchant-funded benefit supply.
+
+Key learning:
+Large-scale earn activation is achievable.
+Sustainable loyalty economics require simpler and more frequent burn mechanics, clearer customer communication and sufficient merchant-funded supply.
+
+Value outlook:
+Recovery remains feasible if burn mechanics, campaign intensity and merchant funding are accelerated together, with positive ROMI demonstrated across mature cohorts.",CORRECT AND CONTINUE,"Decision required:
+Approve burn-recovery priorities and quantified merchant-funding milestones.
+
+Management intervention:
+Intensify burn-driving campaigns, including scan-and-pay with voucher.
+Accelerate behavior-led targeting and offer optimization.
+Strengthen communication of loyalty value and recover merchant-funded voucher supply.
+Fast-track a replacement earn mechanism before the merchant-inflow scheme is discontinued.
+
+Next checkpoint:
+Review burn conversion, merchant funding and ROMI after the next two campaign cycles.",Reconsider the scale and funding model if burn remains below 80% of target or ROMI is negative after cohort maturation.
+OPP-RBG-USL-01,Credit Card & USL Economics Optimization,RBG,GATE 2,TIER 1 MC,PENDING REVIEW,U-RBG-USL,PA-RBG-USL,"Card economics were diluted by high-utilization, low-return behavior, while unsecured growth was increasingly dependent on PIL and ShopCash. The Instant funnel showed strong post-approval conversion but a low approval rate, indicating both a profitability problem and a qualified-growth opportunity.",OPCO-RBG-USL-01,"High utilization or early repayment behavior alone does not prove customer-level value destruction. PBT and RoRWA must be assessed after interest, fee, funding, incentive, scheme and risk-cost effects.",245.0,FY2026,MEDIUM,DEVELOP INITIATIVE,"Context:
+A material Hyper-Optimizer cohort generated weak or negative economics, non-installment card balances were under pressure, and unsecured growth was shifting toward PIL, overdraft and ShopCash.
+
+Why now:
+Continuing to use capital and incentives on low-return behavior would constrain funding for higher-margin unsecured products and qualified new-to-product customers.
+
+Addressable pool:
+Loss-making or low-RoRWA card behavior, card propositions and fees, installment conversion, and qualified Instant-funnel customers.","Repricing unprofitable card behavior and reallocating capacity toward qualified Instant, PIL, ShopCash and installment customers can improve both PBT and risk-adjusted growth. Better data and decisioning can raise approval without sacrificing risk discipline.","Approximately 92K Hyper-Optimizer customers held about VND 4.9 Tn of balance and were estimated to dilute 2026 PBT by approximately VND 90 Bn.
+The Instant funnel showed approximately 31% conversion after approval but only around 22% approval, making decisioning improvement a distinct growth lever.
+Credit-card non-installment balances were not the primary growth engine; PIL and ShopCash were becoming more important.
+Identified value levers included proposition redesign, fee and feature-cost optimization, installment growth and decision-model improvement.","Some Visa and optimizer scenarios in the deck were tentative or explicitly illustrative.
+Repricing may reduce valuable payment volume before recovered value is redeployed.
+Higher approval may create future credit cost if data and models are not sufficiently discriminating.
+Card, PIL and ShopCash value pools may overlap at customer level.","Alternatives considered:
+Maintain a volume-led card strategy.
+Exit optimizer customers broadly without a replacement-growth plan.
+Target repricing and proposition redesign while reallocating capacity to profitable unsecured and installment growth.
+
+Main downside:
+Poorly targeted repricing may lose valuable spend, while looser approval may create future credit cost that outweighs near-term TOI.","Reassess if pricing destroys more profitable volume than PBT recovered, or if higher Instant approval weakens risk-adjusted return, raises delinquency or fails to generate sufficient realized TOI.",2026-08-31,ON TRACK,"FY action forecast: 108% of OPCO target.
+Hyper-optimizer action TOI: 74.7 Bn, +83% vs target.
+Instant approval rate: 24%, +3ppt vs target.
+Hyper-optimizer active cards: 44,686, +72.8% vs target.",263.4,(18.4),"Achievements:
+Hyper-optimizer actions are on track and fee collection economics are delivering above target.
+Instant approval performance improved while repayment performance remains under close monitoring.
+Installment conversion improved after fee implementation.
+
+Performance gaps:
+The decline in hyper-optimizer purchase volume was not fully offset by growth in the remaining customer base.
+Profitable replacement volume is not scaling quickly enough.
+Targeted usage, installment and proposition-led growth remain at an early stage relative to the purchase-volume gap.
+
+Key risks:
+Aggressive fee and repricing actions may weaken purchase volume or increase attrition.
+Approval and usage acceleration could create hidden credit cost if repayment performance deteriorates.",VALIDATED,EXECUTION ? Profitable volume replacement,"Implication for thesis:
+The economics-correction thesis is validated.
+The remaining requirement is to rebuild scale with profitable activity rather than restore low-quality volume.
+
+Primary constraint:
+Speed of replacing low-quality purchase volume with profitable usage.
+
+Key learning:
+Fee and pricing actions can recover contribution quickly.
+Sustainable growth requires simultaneous acceleration of installment usage, targeted spend stimulation and profitable new-customer propositions.
+
+Value outlook:
+The opportunity is on track, provided profitable purchase volume grows without deterioration in credit quality.",CONTINUE,"Decision required:
+Maintain pricing and risk guardrails while accelerating targeted profitable-usage initiatives.
+
+Management intervention:
+Intensify targeted spend-threshold and installment campaigns.
+Accelerate the Mastercard proposition revamp for salary customers.
+Selectively scale cohorts with positive net contribution and acceptable repayment quality.
+
+Next checkpoint:
+Monthly review of net contribution, profitable purchase volume by cohort and repayment quality.",Reconsider campaign intensity if repayment quality deteriorates or net contribution declines after credit cost.
+OPP-RBG-SME-01,SME Acquisition & Lending Growth Recovery,RBG,GATE 2,TIER 1 MC,PENDING REVIEW,U-RBG-SME,PA-RBG-SME-GROWTH,"NTB SME acquisition had plateaued at approximately 4.6-4.7K customers per month, while short-term lending faced lower qualified lead generation, softer conversion and higher churn. The opportunity combined acquisition recovery with lending-book retention and growth.",OPCO-RBG-SME-01,"Higher NTB volume can mask weak activation, low product penetration or deteriorating credit quality. Acquisition should be assessed using active usage, relationship value and risk-adjusted return, not customer count alone.",234.0,FY2026,MEDIUM,DEVELOP INITIATIVE,"Context:
+TCB had strong digital capability, but SME acquisition intensity and product penetration had not kept pace. Merchant and BO/TL pools offered scalable acquisition routes, while ST Lending required more qualified leads, better conversion and stronger renewal.
+
+Why now:
+Delayed action would widen the balance and TOI gap and allow churn to offset new production.
+
+Addressable pool:
+Merchant-linked businesses, BO/TL referrals, digital and partner leads, new-to-credit SME customers and existing borrowers approaching renewal.","Targeted acquisition from Merchant and BO/TL pools, combined with qualified-lead expansion, persona-based propositions and proactive renewal, can restore sustainable SME customer and lending growth.","The acquisition baseline was approximately 4.6-4.7K NTB SME per month versus a 7.3K monthly stretch ambition.
+The lending operating hypothesis was to scale qualified leads toward approximately 6.8K per month and improve conversion toward 8%, while protecting credit quality.
+NTB SME acquisition had plateaued from late 2025 even as CASA ticket size improved.
+Product-per-customer remained low, indicating room to deepen new relationships.
+Churn was concentrated in B2B and subcontractor personas.","Funnel assumptions varied across deck versions and required validation.
+Incremental acquisition depended on marketing budget, sales capacity and execution readiness.
+Higher conversion could weaken asset quality or RoRWA if pursued without risk discipline.
+Balance and TOI gap estimates used different horizons and were therefore not directly comparable.","Alternatives considered:
+Continue broad SME acquisition without prioritized pools.
+Use pricing alone to stimulate lending.
+Scale focused acquisition, improve lead quality and conversion, and reduce churn through proactive renewal and persona-based offers.
+
+Main downside:
+Higher acquisition spend or relaxed conversion could add low-engagement or low-return customers and increase future risk cost.","Reassess if incremental acquisition fails to improve active usage and customer value, or if lending growth lowers risk-adjusted return, weakens asset quality or requires materially higher acquisition cost than planned.",2026-08-31,BEHIND,"Total new NTB: 4,276, -33% vs target and -13% MoM.
+NTC lending: 421 per month, -47% vs target.
+FY action forecast: 50%, 119 Bn gap.
+Lending net balance: 531 Bn, with slowing momentum.",115.0,119.0,"Achievements:
+Lending net balance reached approximately 531 Bn in August.
+NTC lending improved month on month, and selected partnership and B2C channels met or exceeded their targets.
+Additional RM capacity was added to support acquisition.
+
+Performance gaps:
+Existing acquisition and lending initiatives are not delivering at sufficient scale.
+PL++, Lending 2.0, new-born acquisition and several sales channels require stronger execution intensity.
+Resources remain dispersed across channels with uneven conversion and value quality.
+
+Key risks:
+The new-born SME market declined from about 22K in March to 12.2K in August.
+Five activities were flagged at risk.
+Additional marketing and headcount may dilute RoRWA if conversion and post-onboarding depth do not improve.",PARTIALLY VALIDATED,MARKET SIZE | EXECUTION ? New-born pool contraction and channel conversion,"Implication for thesis:
+The full-engine SME thesis remains strategically valid, but the original ambition requires rebasing.
+Both market contraction and execution quality contribute to the gap.
+
+Primary constraint:
+Insufficient execution intensity and resource concentration in productive acquisition and lending channels.
+
+Key learning:
+Adding more channels or headcount is not enough.
+Capacity must be concentrated behind channels with proven NTB activation, lending conversion and positive marginal RoRWA.
+
+Value outlook:
+The opportunity is partially recoverable after target rebasing, channel reallocation and tighter conversion discipline.",CORRECT AND REBASE,"Decision required:
+Approve revised channel targets and reduce or redesign persistently low-conversion initiatives.
+
+Management intervention:
+Intensify BO, partnership and other channels with proven conversion.
+Accelerate MGM rollout using the revised scheme.
+Improve lead allocation and lending conversion for PL++ and Lending 2.0.
+Enforce marginal RoRWA in pricing and approval decisions.
+
+Next checkpoint:
+Review channel productivity, lending conversion and marginal RoRWA for two consecutive months after target rebasing.",Reconsider the original opportunity size if revised channel conversion remains below 80% or marginal RoRWA stays below hurdle.
+OPP-CIBG-RORWA-01,CIBG Low-RoRWA Portfolio Optimization,CIBG,GATE 2,TIER 1 MC,PENDING REVIEW,U-CIBG-PORTFOLIO,PA-CIBG-RORWA,"The bottom-30% low-RoRWA pool represented approximately VND 83 Tn RWA, or 39% of the portfolio, and was concentrated in relationships seasoned beyond 24 months. This depressed portfolio returns under credit and capital constraints.",OPCO-CIBG-RORWA-01,"RoRWA can improve mechanically through balance run-off even when absolute income or strategic customer value deteriorates. Ratio improvement must therefore be assessed together with PBT, relationship value and redeployment quality.",202.0,FY2026,MEDIUM,DEVELOP INITIATIVE,"Context:
+Low lending NIM, limited cross-sell, long credit duration and unused or inefficient exposure were the primary causes. The initial response combined repricing, cross-sell, exposure reduction, selective manage-out and replacement with higher-RoRWA growth.
+
+Why now:
+Credit-limit and capital constraints increased the opportunity cost of retaining long-duration low-return exposure.
+
+Addressable pool:
+Bottom-tier low-RoRWA relationships, especially exposures seasoned beyond 24 months, low-return LC relationships and customers with unused limits or weak cross-sell economics.","Customer-level repricing, cross-sell, tenor and exposure management can improve RoRWA while preserving economically attractive strategic relationships and releasing capacity for higher-return growth.","The bottom-30% low-RoRWA pool was quantified at approximately VND 83 Tn RWA, or 39% of the portfolio.
+An actionable base of approximately VND 53 Tn at around 1.2% RoRWA was used to illustrate the value of moving toward approximately 2.1%.
+Most low-return exposure was concentrated in relationships with long credit duration.
+Low lending NIM and insufficient non-credit income were identified as the core return gaps.
+The LC sub-pool was treated as part of the broader portfolio to avoid double counting.","Ratio improvement through balance run-off may not create economic value.
+LC overlaps with the broader bottom-30% pool, so value estimates cannot be added without account-level reconciliation.
+High-RoRWA replacement relationships require long origination and seasoning lead times.
+Aggressive repricing or manage-out may damage strategic relationships and future income.","Alternatives considered:
+Retain the current portfolio without intervention.
+Exit low-RoRWA relationships broadly to improve the ratio quickly.
+Apply customer-level repricing, cross-sell, limit and tenor management, selective manage-out and replacement-growth discipline.
+
+Main downside:
+Over-aggressive remediation can reduce absolute income, impair strategic relationships or release capacity before credible replacement opportunities mature.","Reassess remediation intensity if realized PBT loss exceeds value recovered, strategic relationship value is impaired, or released RWA cannot be redeployed at higher risk-adjusted returns within the review horizon.",2026-08-31,ON TRACK,"Low-RoRWA lending: 40,015 Bn, -16.5% vs target.
+Low-RoRWA CASA: 5,790 Bn, +3.4% vs target.
+FY TOI forecast: 102%, 207 Bn vs 202 Bn target.
+Projected RoRWA: 1.71% in Dec-26, from 1.52% in Jul-26.",207.0,(5.0),"Achievements:
+Overall performance is on track, with key measures meeting or slightly exceeding targets.
+TOI forecast is above target, low-RoRWA lending has reduced, and CASA and cross-sell have improved.
+Financial-statement update and RWA manage-out actions are progressing.
+
+Performance gaps:
+Credit-interest improvement remains below its action-level target.
+Exception monitoring and follow-up are not yet sufficiently institutionalized to prevent new low-rate disbursement from rebuilding the low-RoRWA pool.
+The next strategic VVIP pipeline remains in development.
+
+Key risks:
+Margin pressure is expected to continue while cost of funds remains elevated through year-end.
+Low-rate disbursement exceptions may dilute credit income.
+Manage-out may improve ratios while sacrificing strategic customer value or future income.",VALIDATED,EXECUTION | EXTERNAL FACTOR ? Portfolio-control sustainability and COF pressure,"Implication for thesis:
+The portfolio-optimization thesis is validated and current delivery is on track.
+Governance should now shift from one-off remediation to sustained prevention of new low-return exposure.
+
+Primary constraint:
+Sustaining preventive control over new low-return exposure while cost-of-funds pressure remains elevated.
+
+Key learning:
+One-off repricing and manage-out can improve the current portfolio.
+Durable value requires recurring exception monitoring, timely BU follow-up and customer-level PBT accountability.
+
+Value outlook:
+The opportunity remains on track if margin dilution, relationship loss and replacement-growth risk are controlled.",CONTINUE,"Decision required:
+Institutionalize account-level guardrails for low-rate disbursement, cross-sell mitigants and selective manage-out.
+
+Management intervention:
+Institutionalize and intensify weekly BF-to-BU alerts for low-rate disbursement exceptions.
+Enforce timely closure of follow-up actions and strengthen exposure and pricing guardrails.
+Accelerate completion of the next strategic VVIP pipeline.
+
+Next checkpoint:
+Monthly review of RoRWA, customer-level PBT, low-rate disbursement exceptions, follow-up closure and VVIP pipeline progression.",Reconsider manage-out intensity if realized PBT loss exceeds uplift or strategic relationship value is impaired.
