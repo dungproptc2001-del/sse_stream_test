@@ -13,3 +13,182 @@ Trigger keywords: create/find new opportunity + Finpulse, MC, management committ
 Method: Based on md của bác A + leverage current recommendations skill đang có, tham khảo thêm file excel đính kèm
 Output: table/text theo format file excel (nhất là các cột I đến U page 1) + dashboard/phân tích (optional)
  
+
+
+
+
+current_forecast_pbt_bn	current_forecast_gap_bn	tracking_commentary	assessment_thesis_validation	assessment_variance_diagnosis	management_assessment	recommended_next_step	management_decision_required	current_reconsideration_trigger
+136.0	93.0	"Achievements:
+T-Shop registration reached approximately 127K and was about 20% above target, confirming strong reach and registration momentum.
+The strategy pivoted from pure HH acquisition toward portfolio activation, POS and lending cross-sell.
+
+Performance gaps:
+T-Shop active 7D customers remain materially below target despite strong registration.
+Frontline productivity and T-Shop go-to-market intensity remain insufficient to convert the registered base into sustained operating usage, CASA and TOI.
+HH acquisition slowed after tax-compliance threshold and deadline changes.
+
+Key risks:
+The HH target was revised from 500K to 290K and a material acquisition gap remains.
+T-Shop active rate remains low versus the original 80% ambition.
+Delayed or underpowered activation activities may slow monetization even when registrations remain on track."	PARTIALLY VALIDATED	INITIATIVE DESIGN | EXECUTION → Registered-to-active conversion	"Implication for thesis:
+The merchant primacy thesis remains valid, but the binding constraint has shifted from acquisition and registration to active operating usage and monetization.
+
+Primary constraint:
+Registered-to-active conversion, compounded by uneven frontline productivity and insufficient activation intensity.
+
+Key learning:
+Registration-led growth is not sufficient.
+Value creation requires stronger usage activation, service support and frontline follow-through.
+Productivity should be measured against active usage and operating inflows, not accounts opened alone.
+
+Value outlook:
+The opportunity remains partially recoverable if resources are redirected toward activation, operating balances and cross-sell conversion."	CORRECT AND CONTINUE	"Decision required:
+Approve a focused activation recovery plan and reallocate effort away from broad registration growth.
+
+Management intervention:
+Intensify registered-to-active conversion through stronger service support, frontline follow-up and targeted usage incentives.
+Redirect acquisition capacity toward channels with measurable activation productivity.
+Accelerate T-Shop branding and go-to-market support for POS, QR and lending cross-sell.
+
+Next checkpoint:
+Monthly review of active rate, CASA inflow, frontline productivity and realized TOI."	Reconsider the initiative design if active rate and operating-flow economics do not improve after one full quarter.
+86.0	40.0	"Achievements:
+Big Boom validated that the earn scheme can activate customers at scale.
+August delivered approximately 3 million earning customers, the highest recorded level, mainly supported by the NTB login scheme.
+
+Performance gaps:
+Burn customers reached about 79% of target and require faster growth across customer tiers.
+Strong earn participation has not converted sufficiently into recurring burn behavior, MTB progression or realized economics.
+Burn-driving campaigns, customer communication and merchant-funded voucher acquisition are not yet operating at the intensity required to close the gap.
+
+Key risks:
+The feasibility of reaching 800 Bn merchant voucher value at the current pace remains unproven.
+Low customer awareness of perceived loyalty value limits burn.
+Stopping the merchant inflow scheme in Q4 may put the year-end earned-customer target at risk."	PARTIALLY VALIDATED	INITIATIVE DESIGN | EXECUTION → Burn conversion and merchant funding	"Implication for thesis:
+The engagement thesis remains valid because earn activation has been demonstrated at scale.
+Engagement has not yet converted sufficiently into burn, MTB and economic value.
+
+Primary constraint:
+Burn conversion, perceived customer value and merchant-funded benefit supply.
+
+Key learning:
+Large-scale earn activation is achievable.
+Sustainable loyalty economics require simpler and more frequent burn mechanics, clearer customer communication and sufficient merchant-funded supply.
+
+Value outlook:
+Recovery remains feasible if burn mechanics, campaign intensity and merchant funding are accelerated together, with positive ROMI demonstrated across mature cohorts."	CORRECT AND CONTINUE	"Decision required:
+Approve burn-recovery priorities and quantified merchant-funding milestones.
+
+Management intervention:
+Intensify burn-driving campaigns, including scan-and-pay with voucher.
+Accelerate behavior-led targeting and offer optimization.
+Strengthen communication of loyalty value and recover merchant-funded voucher supply.
+Fast-track a replacement earn mechanism before the merchant-inflow scheme is discontinued.
+
+Next checkpoint:
+Review burn conversion, merchant funding and ROMI after the next two campaign cycles."	Reconsider the scale and funding model if burn remains below 80% of target or ROMI is negative after cohort maturation.
+263.4	(18.4)	"Achievements:
+Hyper-optimizer actions are on track and fee collection economics are delivering above target.
+Instant approval performance improved while repayment performance remains under close monitoring.
+Installment conversion improved after fee implementation.
+
+Performance gaps:
+The decline in hyper-optimizer purchase volume was not fully offset by growth in the remaining customer base.
+Profitable replacement volume is not scaling quickly enough.
+Targeted usage, installment and proposition-led growth remain at an early stage relative to the purchase-volume gap.
+
+Key risks:
+Aggressive fee and repricing actions may weaken purchase volume or increase attrition.
+Approval and usage acceleration could create hidden credit cost if repayment performance deteriorates."	VALIDATED	EXECUTION → Profitable volume replacement	"Implication for thesis:
+The economics-correction thesis is validated.
+The remaining requirement is to rebuild scale with profitable activity rather than restore low-quality volume.
+
+Primary constraint:
+Speed of replacing low-quality purchase volume with profitable usage.
+
+Key learning:
+Fee and pricing actions can recover contribution quickly.
+Sustainable growth requires simultaneous acceleration of installment usage, targeted spend stimulation and profitable new-customer propositions.
+
+Value outlook:
+The opportunity is on track, provided profitable purchase volume grows without deterioration in credit quality."	CONTINUE	"Decision required:
+Maintain pricing and risk guardrails while accelerating targeted profitable-usage initiatives.
+
+Management intervention:
+Intensify targeted spend-threshold and installment campaigns.
+Accelerate the Mastercard proposition revamp for salary customers.
+Selectively scale cohorts with positive net contribution and acceptable repayment quality.
+
+Next checkpoint:
+Monthly review of net contribution, profitable purchase volume by cohort and repayment quality."	Reconsider campaign intensity if repayment quality deteriorates or net contribution declines after credit cost.
+115.0	119.0	"Achievements:
+Lending net balance reached approximately 531 Bn in August.
+NTC lending improved month on month, and selected partnership and B2C channels met or exceeded their targets.
+Additional RM capacity was added to support acquisition.
+
+Performance gaps:
+Existing acquisition and lending initiatives are not delivering at sufficient scale.
+PL++, Lending 2.0, new-born acquisition and several sales channels require stronger execution intensity.
+Resources remain dispersed across channels with uneven conversion and value quality.
+
+Key risks:
+The new-born SME market declined from about 22K in March to 12.2K in August.
+Five activities were flagged at risk.
+Additional marketing and headcount may dilute RoRWA if conversion and post-onboarding depth do not improve."	PARTIALLY VALIDATED	MARKET SIZE | EXECUTION → New-born pool contraction and channel conversion	"Implication for thesis:
+The full-engine SME thesis remains strategically valid, but the original ambition requires rebasing.
+Both market contraction and execution quality contribute to the gap.
+
+Primary constraint:
+Insufficient execution intensity and resource concentration in productive acquisition and lending channels.
+
+Key learning:
+Adding more channels or headcount is not enough.
+Capacity must be concentrated behind channels with proven NTB activation, lending conversion and positive marginal RoRWA.
+
+Value outlook:
+The opportunity is partially recoverable after target rebasing, channel reallocation and tighter conversion discipline."	CORRECT AND REBASE	"Decision required:
+Approve revised channel targets and reduce or redesign persistently low-conversion initiatives.
+
+Management intervention:
+Intensify BO, partnership and other channels with proven conversion.
+Accelerate MGM rollout using the revised scheme.
+Improve lead allocation and lending conversion for PL++ and Lending 2.0.
+Enforce marginal RoRWA in pricing and approval decisions.
+
+Next checkpoint:
+Review channel productivity, lending conversion and marginal RoRWA for two consecutive months after target rebasing."	Reconsider the original opportunity size if revised channel conversion remains below 80% or marginal RoRWA stays below hurdle.
+207.0	(5.0)	"Achievements:
+Overall performance is on track, with key measures meeting or slightly exceeding targets.
+TOI forecast is above target, low-RoRWA lending has reduced, and CASA and cross-sell have improved.
+Financial-statement update and RWA manage-out actions are progressing.
+
+Performance gaps:
+Credit-interest improvement remains below its action-level target.
+Exception monitoring and follow-up are not yet sufficiently institutionalized to prevent new low-rate disbursement from rebuilding the low-RoRWA pool.
+The next strategic VVIP pipeline remains in development.
+
+Key risks:
+Margin pressure is expected to continue while cost of funds remains elevated through year-end.
+Low-rate disbursement exceptions may dilute credit income.
+Manage-out may improve ratios while sacrificing strategic customer value or future income."	VALIDATED	EXECUTION | EXTERNAL FACTOR → Portfolio-control sustainability and COF pressure	"Implication for thesis:
+The portfolio-optimization thesis is validated and current delivery is on track.
+Governance should now shift from one-off remediation to sustained prevention of new low-return exposure.
+
+Primary constraint:
+Sustaining preventive control over new low-return exposure while cost-of-funds pressure remains elevated.
+
+Key learning:
+One-off repricing and manage-out can improve the current portfolio.
+Durable value requires recurring exception monitoring, timely BU follow-up and customer-level PBT accountability.
+
+Value outlook:
+The opportunity remains on track if margin dilution, relationship loss and replacement-growth risk are controlled."	CONTINUE	"Decision required:
+Institutionalize account-level guardrails for low-rate disbursement, cross-sell mitigants and selective manage-out.
+
+Management intervention:
+Institutionalize and intensify weekly BF-to-BU alerts for low-rate disbursement exceptions.
+Enforce timely closure of follow-up actions and strengthen exposure and pricing guardrails.
+Accelerate completion of the next strategic VVIP pipeline.
+
+Next checkpoint:
+Monthly review of RoRWA, customer-level PBT, low-rate disbursement exceptions, follow-up closure and VVIP pipeline progression."	Reconsider manage-out intensity if realized PBT loss exceeds uplift or strategic relationship value is impaired.
