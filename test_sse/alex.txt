@@ -105,3 +105,31 @@ Classify:
 - Separate identification of the opportunity from assessment of the proposed solution.
 - Quantify the opportunity before debating a project where feasible.
 - Avoid choosing an initiative first and then constructing an opportunity narrative around it.
+
+
+
+
+
+initial_trigger |	initial_trigger_rule |	known_false_positive_risk	| original_expected_pbt_bn |	original_horizon |	original_confidence	| initial_recommendation |	initial_opportunity_context |	initial_thesis	initial_supporting_evidence |	initial_contrary_evidence |	initial_options_and_downside |	initial_reconsideration_trigger|
+Approximately 1.0 million merchant customers reduced CASA by VND 22.5 Tn, with dual CASA-AUM churn identified as the clearest leakage pool. Tax-law changes increased the urgency to secure merchant operating cash flows through formal business-account and payment journeys.	OPCO-RBG-MERCHANT-01	Business Account opening and T-Shop registration may increase before sustained operating inflows materialize. Adoption must therefore be distinguished from active usage, CASA primacy and realized TOI.	229.0	FY2026	MEDIUM	DEVELOP INITIATIVE	"Context:
+Pricing alone was unlikely to restore merchant CASA. The opportunity was to build primacy through Household Business Account, eTax and T-Shop/Merchant Hub, then deepen POS, QR, lending and merchant-to-SME usage.
+
+Why now:
+Tax-law changes were accelerating business formalization and cash-flow migration, while TCB already had a large merchant relationship base and digital payment infrastructure.
+
+Addressable pool:
+Existing merchants and household businesses eligible for Business Account, eTax, T-Shop and merchant-to-SME journeys."	If TCB anchors merchant operating flows through Business Account, eTax and T-Shop, daily CASA can be defended and subsequently deepened through payments, lending and SME conversion.	"Approximately 1.0 million merchant customers recorded a combined VND 22.5 Tn CASA decline.
+Dual CASA-AUM churn was identified as the clearest leakage pool.
+Merchants with on-us business relationships showed stronger CASA progression than comparable off-us businesses.
+TCB already had merchant relationships, payment infrastructure and digital journeys to support activation.
+Tax-law changes created a time-sensitive window to capture formalized business cash flows."	"Account opening does not prove CASA primacy.
+T-Shop registration does not prove sustained active usage.
+Merchant-to-SME funnel sizing varied across deck versions and remained assumption-sensitive.
+Realized value depended on conversion into operating inflows rather than registration volume."	"Alternatives considered:
+Allow merchant runoff to continue without a dedicated intervention.
+Use broad pricing or generic retention campaigns.
+Build primacy through Business Account, eTax and T-Shop, then deepen usage and selectively convert merchants to SME relationships.
+
+Main downside:
+Weak activation, fragmented ownership or slow merchant-to-SME conversion could consume incentives without creating durable operating balances."	Reassess if Business Account and T-Shop adoption do not result in sustained active usage, operating inflows and realized TOI, or if incremental incentive cost exceeds the value retained and created.
+
