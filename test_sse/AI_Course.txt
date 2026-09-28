@@ -5,3 +5,11 @@ https://learn.deeplearning.ai/courses/safe-and-reliable-ai-via-guardrails/lesson
 https://graphacademy.neo4j.com/courses/genai-mcp-build-custom-tools-python?category=intermediate
 https://academy.langchain.com/courses/deep-agents-with-langgraph
 https://academy.langchain.com/courses/deep-research-with-langgraph
+
+trên AskEZ+ có thể thêm 1 skill dành riêng cho Opportunity theo method của bác A không nhỉ?
+Mục tiêu: tìm cơ hội kinh doanh theo phương pháp của bác A và feed/copy vào finpulse
+Người dùng: BF partners, bác A ,...
+Trigger keywords: create/find new opportunity + Finpulse, MC, management committee, opco....,
+Method: Based on md của bác A + leverage current recommendations skill đang có, tham khảo thêm file excel đính kèm
+Output: table/text theo format file excel (nhất là các cột I đến U page 1) + dashboard/phân tích (optional)
+ 
