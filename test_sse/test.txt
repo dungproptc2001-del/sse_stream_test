@@ -1,0 +1,157 @@
+# News Taxonomy — Techcombank CIBG Market Intelligence
+
+News classification taxonomy for the Corporate & Institutional Banking Group (CIBG).
+
+---
+
+## CATEGORY: `macro`
+
+Macroeconomic news affecting the overall economy and the bank's business environment.
+
+### `interest_rate` — Interest Rates
+- SBV policy rates (refinancing, rediscount, OMO)
+- Deposit and lending rates across the commercial banking system
+- Monetary policy related to interest rates (Fed, ECB, SBV)
+- **Examples**: "SBV cuts policy rates", "Sacombank raises savings rate to 8.8%", "MB cites 3 factors to lower lending rates"
+
+### `oil_energy_price` — Oil & Energy Prices
+- Crude oil prices (Brent, WTI), domestic gasoline prices
+- OPEC+ production, global oil demand
+- Fuel taxes, fees, strategic petroleum reserves
+- **Examples**: "Brent crude drops to $75", "Gasoline price falls VND 5,600/liter", "Environmental tax on fuel reduced"
+
+### `exchange_rate` — Exchange Rates & FX
+- USD/VND rates (central, interbank, free market)
+- SBV FX policy, market intervention
+- Global USD movements (DXY)
+- **Examples**: "USD/VND stable around 25,200", "Banks raise USD price to ceiling"
+
+### `gold_commodities` — Gold & Commodities
+- Global and domestic gold prices
+- Prices of basic commodities (steel, cement, agricultural products...)
+- Domestic-global gold price premium
+- **Examples**: "Gold drops sharply on strong USD", "Domestic gold premium widens to VND 30 million"
+
+### `gdp_growth` — GDP & Macroeconomic Growth
+- Vietnam and regional GDP, economic growth
+- Economic stimulus policies, growth targets
+- Economic reports/forecasts (ADB, WB, OECD, IMF)
+- **Examples**: "ADB: ASEAN GDP down 2.3%", "Double-digit growth target", "OECD warns of US inflation"
+
+### `fdi_trade` — FDI & International Trade
+- Foreign direct investment (FDI) into Vietnam
+- Imports/exports, trade policies
+- International trade relations (US-China trade, EU regulations...)
+- **Examples**: "FDI into HCMC up 200%", "EU exports hindered by packaging rules", "Thanh Hoa seeks $24B investment"
+
+### `geopolitical` — Geopolitics
+- International conflicts affecting the economy (US-Iran, Middle East, US-China)
+- Sanctions, economic embargoes
+- Supply chain risks from geopolitical events
+- **Examples**: "US strikes Iran", "China launches trade probe on US", "Strait of Hormuz under threat"
+
+### `fiscal_policy` — Fiscal Policy & Taxation
+- Public investment, state budget
+- Tax policies (VAT, environmental tax, PIT/CIT)
+- Government bonds
+- **Examples**: "VND 150,000B public investment package for North-South expressway", "VAT on fuel reduced"
+
+---
+
+## CATEGORY: `micro`
+
+Sector-specific news directly affecting CIBG's clients and credit portfolio.
+
+### `real_estate` — Real Estate
+- Developers (Novaland, Vingroup, Masterise, Sun Group, FLC, Dat Xanh...)
+- Real estate projects (residential, commercial, townships, social housing)
+- Property market (prices, transactions, legal, zoning)
+- Real estate bonds, developer debt restructuring
+- **Examples**: "Novaland reverses VND 3,300B land-use fee provision", "RE lending rates hit 14-16%", "Masterise launches same-day groundbreaking"
+
+### `infrastructure` — Infrastructure & Construction
+- Expressways, railways, airports, seaports
+- Construction contractors (Coteccons, Hoa Binh, Son Hai, Vinaconex...)
+- Construction materials, project costs
+- Urban planning, transportation
+- **Examples**: "North-South expressway phase 2", "Can Gio mega-port $5B", "Asphalt and sand shortages for construction"
+
+### `banking_finance` — Banking & Finance (Competitors)
+- News about other commercial banks (VPBank, MBBank, HDBank, Sacombank, Eximbank, BIDV, VCB, Agribank...)
+- Bank business strategies, senior personnel
+- Banking M&A, partnerships
+- Fintech, consumer finance (Home Credit, FE Credit...)
+- **Examples**: "HDBank establishes bank at VIFC", "Former SeABank CEO moves to Sacombank", "Home Credit profits VND 2,000B"
+
+### `financial_services` — Financial Services (CIBG Clients)
+- **These are key CIBG clients — positive news about them = business opportunities for TCB**
+- Securities companies (VPS, SSI, VNDS, HSC, Mirae Asset, TCBS...)
+- Insurance (Bao Viet, Manulife, Prudential, AIA...)
+- Investment funds, asset management companies
+- Leasing, finance companies (non-banks)
+- **Examples**: "VPS raises charter capital to VND 15,000B (VPS is a major TCB client)", "SSI posts record Q1/2026 profit", "Bao Viet issues VND 3,000B bonds"
+
+### `entertainment_travel_hospitality` — Entertainment, Travel & Hospitality
+- Airlines (Vietnam Airlines, Vietjet, Bamboo...)
+- Tourism, hotels, resorts, hospitality
+- Entertainment, events, F&B, lifestyle brands
+- Luxury retail (luxury brands, high-end stores)
+- Airfares, routes, travel demand, tourism mega-cities
+- **Examples**: "Thousands of flights cut", "Audemars Piguet opens store in HCMC", "14,700-ha coastal tourism mega-city", "Vietnam-Qatar flights resume"
+
+### `healthcare` — Healthcare & Pharmaceuticals
+- Private hospitals (Vinmec, FV, Hoan My, Thu Cuc...)
+- Pharmaceuticals (DHG Pharma, Traphaco, Pymepharco, Imexpharm...)
+- Medtech, medical devices
+- Health insurance, healthcare policies
+- **Examples**: "Vinmec invests VND 5,000B hospital", "DHG Pharma revenue up 20%", "FV Hospital expands new facility"
+
+### `capital_markets` — Capital Markets & Securities
+- Stock market (VN-Index, specific stocks)
+- Equity and corporate bond issuances
+- Investment funds, M&A
+- **Examples**: "Stock market up 28 points", "Coteccons issues bonus shares", "MSR transfers to HOSE"
+
+### `diversified` — Diversified Sectors
+Catch-all category for sectors not covered by the specialized subcategories above. Covers multiple industries that are part of CIBG's diversified lending and fee-income portfolio.
+
+- **FMCG & Retail**: Masan, Unilever, C.P., Coca-Cola, The Gioi Di Dong, Vincom Retail, domestic consumption trends
+- **Energy & Utilities**: EVN, power plants (LNG, renewables), oil refining (Nghi Son, Binh Son), water infrastructure
+- **Manufacturing & Industry**: Hoa Phat, Tan A Dai Thanh, Honda VN, industrial parks, manufacturing FDI, supply chains
+- **Technology & Telecom**: Viettel, VNPT, FPT, digital transformation, semiconductors
+- **Agriculture & Aquaculture**: Agricultural products, aquaculture, food processing, agricultural exports
+- **Examples**:
+  - "Masan revenue up 12% YoY", "The Gioi Di Dong pays VND 3,000B in dividends"
+  - "EVN to invest VND 500,000B in power", "Hiep Phuoc LNG plant VND 19,000B"
+  - "Hoa Phat targets VND 210,000B revenue", "Industrial zone investment wave"
+  - "Viettel overseas investment up 30%", "Whoever owns chips controls trade"
+  - "Agricultural giant partners with German conglomerate", "Durian prices plunge 35%"
+
+---
+
+## CATEGORY: `other`
+
+News not related to macro or micro categories, with minimal direct relevance to CIBG operations.
+
+### `general_news` — General News
+- Social news, weather, criminal law unrelated to finance
+- International news not affecting Vietnam's economy
+- Entertainment, lifestyle news
+- **Examples**: "Heatwave in HCMC", "Belarusian President gifts rifle to Kim Jong-un", "House fire on Linh Nam street"
+
+### `fraud_scam` — Financial Fraud & Scams
+- Financial fraud, crypto scam platforms
+- Financial law violations
+- **Examples**: "Golden Fund suspends operations", "Hanagold CEO arrested", "Risk warning: Tikop, Topi"
+
+---
+
+## CLASSIFICATION RULES
+
+1. **A single article may belong to MULTIPLE subcategories** (e.g., "RE lending rates at 14-16%" → `interest_rate` + `real_estate`)
+2. **Prioritize the most specific subcategory** — if the article primarily discusses one of the 7 specialized micro sectors (real_estate, infrastructure, banking_finance, financial_services, entertainment_travel_hospitality, healthcare, capital_markets), choose that sector as primary
+3. **Macro vs Micro**: If the news affects the entire economy → macro. If it only affects a specific sector → micro
+4. **`other`**: Only use when the news is TRULY unrelated to finance/business
+5. **`financial_services` vs `banking_finance`**: News about commercial banks (TCB competitors) → `banking_finance`. News about securities firms, insurance, investment funds, leasing (CIBG clients) → `financial_services`
+6. **`diversified`**: Use for micro-level news about FMCG, retail, energy/utilities, manufacturing, technology/telecom, or agriculture that does NOT fit into the 7 specialized subcategories above
+7. **Output**: Always return `primary_subcategory` (most important) and `secondary_subcategories` (if applicable)
